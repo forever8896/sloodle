@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "trace-1",
+  "createdAt": "2026-11-17T15:44:33.567Z",
+  "payload": {
+    "actions": [
+      {
+        "name": "tap",
+        "summary": "tap button \"Accept change\" in \"Proposed change to Read Treble Clef and…\"",
+        "target": {
+          "role": "button",
+          "name": "Accept change",
+          "within": "Proposed change to Read Treble Clef and Play Along"
+        }
+      }
+    ],
+    "executor": {
+      "name": "claude-code",
+      "version": "1"
+    },
+    "recordedFor": {
+      "testId": "tests/chat.e2e.ts::chat%20with%20Sloo::a%20proposed%20course%20change%20shows%20Now%20and%20After%2C%20and%20accepting%20it%20applies%20it",
+      "targetId": "chromium",
+      "instructionDigest": "4c73ccbf265dd9952f3ea2a1971fab46ce9fa499d3d31e54a7f2fae4fb92b6fe",
+      "paramsDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "callIndex": 0,
+      "agent": "default"
+    },
+    "summary": "I tapped \"Accept change\" in the Chat with Sloo section. The proposal now shows the status \"Accepted. The course is updated. Writing the new lesson plan now.\" The Accept and Keep buttons are gone.",
+    "startPath": "/?demo",
+    "endPath": "/?demo",
+    "endAnchors": [
+      {
+        "role": "status",
+        "name": "Accepted. The course is updated. Writing the new lesson plan now."
+      }
+    ],
+    "goneAnchors": [
+      {
+        "text": "Drawing…"
+      },
+      {
+        "text": "One lesson gets a new lesson plan once you accept. Your progress on every lesson that stays is kept."
+      },
+      {
+        "role": "button",
+        "name": "Accept change"
+      },
+      {
+        "role": "button",
+        "name": "Keep it as it is"
+      }
+    ],
+    "endWaitMs": 15402,
+    "keyedBy": {
+      "cacheSchema": "trace-1",
+      "policyVersion": "conservative/6",
+      "project": "01e48ba80b5211ad3b51c4c4e52ec1531faa923fe12f59b27e1b7f02b9e3c314",
+      "platform": "web",
+      "engineName": "web",
+      "engineSpiVersion": 1,
+      "appIdentity": "f9f49ed79c2662c7f6e0522da33af26cd0588919fce8b674530ba7c83e5d217c",
+      "agentContextDigest": "c074949dea83d1027d1c42747d8215653e6b2f8d2f11c4da09292e68be9609bf"
+    }
+  }
+}

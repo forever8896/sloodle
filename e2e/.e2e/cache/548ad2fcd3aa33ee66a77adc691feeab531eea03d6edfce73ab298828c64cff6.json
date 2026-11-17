@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "trace-1",
+  "createdAt": "2026-11-17T15:45:18.082Z",
+  "payload": {
+    "actions": [
+      {
+        "name": "tap",
+        "summary": "tap button \"Hi Sloo!\"",
+        "target": {
+          "role": "button",
+          "name": "Hi Sloo!"
+        }
+      }
+    ],
+    "executor": {
+      "name": "claude-code",
+      "version": "1"
+    },
+    "recordedFor": {
+      "testId": "tests/onboarding.e2e.ts::first%20run::Sloo%20welcomes%20a%20new%20learner%20and%20the%20welcome%20ends%20on%20Home",
+      "targetId": "chromium",
+      "instructionDigest": "bc472aba0fceafccb206b62f2d5dbc2f1a11e8fb0a4a45ea65869082b57956fb",
+      "paramsDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "callIndex": 0,
+      "agent": "default"
+    },
+    "summary": "Tapped \"Hi Sloo!\"; onboarding advanced to step 2 of 6, with Sloo asking \"What should I call you?\"",
+    "startPath": "/?demo&onboarding",
+    "endPath": "/?demo&onboarding",
+    "endAnchors": [
+      {
+        "text": "First things first. What should I call you?"
+      },
+      {
+        "role": "heading",
+        "name": "What should I call you?"
+      },
+      {
+        "text": "Your name"
+      },
+      {
+        "role": "textbox",
+        "name": "Your name",
+        "placeholder": "First name or a nickname",
+        "value": "Sam"
+      },
+      {
+        "text": "Only Sloo sees it. You can change it any time under You and Sloo."
+      },
+      {
+        "role": "button",
+        "name": "Back"
+      },
+      {
+        "role": "button",
+        "name": "Skip"
+      },
+      {
+        "role": "button",
+        "name": "Continue"
+      }
+    ],
+    "goneAnchors": [
+      {
+        "text": "Hi! I'm Sloo. I'll be your tutor."
+      },
+      {
+        "role": "heading",
+        "name": "Learn anything, at your own pace"
+      },
+      {
+        "text": "Tell me what you want to be able to do. I'll ask a few questions, research how it's best learned, build a course around you, and teach it one small step at a time."
+      },
+      {
+        "role": "button",
+        "name": "Hi Sloo!"
+      },
+      {
+        "role": "list",
+        "name": "Step 1 of 6"
+      }
+    ],
+    "endWaitMs": 13280,
+    "keyedBy": {
+      "cacheSchema": "trace-1",
+      "policyVersion": "conservative/6",
+      "project": "01e48ba80b5211ad3b51c4c4e52ec1531faa923fe12f59b27e1b7f02b9e3c314",
+      "platform": "web",
+      "engineName": "web",
+      "engineSpiVersion": 1,
+      "appIdentity": "f9f49ed79c2662c7f6e0522da33af26cd0588919fce8b674530ba7c83e5d217c",
+      "agentContextDigest": "c074949dea83d1027d1c42747d8215653e6b2f8d2f11c4da09292e68be9609bf"
+    }
+  }
+}

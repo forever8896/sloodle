@@ -1,0 +1,104 @@
+{
+  "schemaVersion": "trace-1",
+  "createdAt": "2026-11-17T15:45:18.092Z",
+  "payload": {
+    "actions": [
+      {
+        "name": "tap",
+        "summary": "tap button \"I'll decide later\"",
+        "target": {
+          "role": "button",
+          "name": "I'll decide later"
+        }
+      }
+    ],
+    "executor": {
+      "name": "claude-code",
+      "version": "1"
+    },
+    "recordedFor": {
+      "testId": "tests/onboarding.e2e.ts::first%20run::Sloo%20welcomes%20a%20new%20learner%20and%20the%20welcome%20ends%20on%20Home",
+      "targetId": "chromium",
+      "instructionDigest": "8ef0de046224bf6626942fb2130fa2c04ec9b2ef74076053df816f8886b28048",
+      "paramsDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "callIndex": 0,
+      "agent": "default"
+    },
+    "summary": "I tapped \"I'll decide later\" on step 6. The welcome ended and the main app opened with the course list and a \"What do you want to learn?\" prompt. The greeting reads \"Hi Sam!\", not \"Hi Ada!\", which may be a demo-data quirk.",
+    "startPath": "/?demo&onboarding",
+    "endPath": "/?demo&onboarding",
+    "endAnchors": [
+      {
+        "text": "Learn something new"
+      },
+      {
+        "text": "Chat with Sloo"
+      },
+      {
+        "text": "Your studies, your courses"
+      },
+      {
+        "text": "Your courses"
+      },
+      {
+        "role": "image",
+        "name": "Bud: got it once"
+      },
+      {
+        "text": "1 of 6 mastered, 3 to review"
+      },
+      {
+        "text": "14 of 22 mastered"
+      },
+      {
+        "role": "image",
+        "name": "Seed: not started"
+      }
+    ],
+    "goneAnchors": [
+      {
+        "role": "button",
+        "name": "Skip intro"
+      },
+      {
+        "text": "Now the fun part. What would you love to learn?"
+      },
+      {
+        "role": "textbox",
+        "name": "What do you want to learn?",
+        "placeholder": "Anything. A language, calculus, how engines work…"
+      },
+      {
+        "role": "button",
+        "name": "Reading sheet music"
+      },
+      {
+        "role": "button",
+        "name": "Conversational Spanish"
+      },
+      {
+        "role": "button",
+        "name": "How engines work"
+      },
+      {
+        "role": "button",
+        "name": "Statistics for work"
+      },
+      {
+        "role": "button",
+        "name": "Back"
+      }
+    ],
+    "endWaitMs": 13128,
+    "keyedBy": {
+      "cacheSchema": "trace-1",
+      "policyVersion": "conservative/6",
+      "project": "01e48ba80b5211ad3b51c4c4e52ec1531faa923fe12f59b27e1b7f02b9e3c314",
+      "platform": "web",
+      "engineName": "web",
+      "engineSpiVersion": 1,
+      "appIdentity": "f9f49ed79c2662c7f6e0522da33af26cd0588919fce8b674530ba7c83e5d217c",
+      "agentContextDigest": "c074949dea83d1027d1c42747d8215653e6b2f8d2f11c4da09292e68be9609bf"
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "trace-1",
+  "createdAt": "2026-11-17T15:45:54.263Z",
+  "payload": {
+    "actions": [
+      {
+        "name": "check",
+        "summary": "uncheck switch \"Play sounds\" in \"Sound\"",
+        "target": {
+          "role": "switch",
+          "name": "Play sounds",
+          "within": "Sound"
+        },
+        "checked": false
+      }
+    ],
+    "executor": {
+      "name": "claude-code",
+      "version": "1"
+    },
+    "recordedFor": {
+      "testId": "tests/profile-and-settings.e2e.ts::settings::appearance%20switches%20to%20dark%20and%20sounds%20switch%20off",
+      "targetId": "chromium",
+      "instructionDigest": "1e65a1963748130b8549614531ab1bc81701cb0fda70d47ce560e859dfe75423",
+      "paramsDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "callIndex": 0,
+      "agent": "default"
+    },
+    "summary": "I turned off the \"Play sounds\" switch in the Settings dialog. It now shows as unchecked, and the Sound volume slider became disabled. The dialog is still open.",
+    "startPath": "/?demo",
+    "endPath": "/?demo",
+    "endAnchors": [
+      {
+        "role": "switch",
+        "name": "Play sounds"
+      }
+    ],
+    "goneAnchors": [
+      {
+        "role": "switch",
+        "name": "Play sounds",
+        "states": [
+          "checked"
+        ]
+      }
+    ],
+    "endWaitMs": 14192,
+    "keyedBy": {
+      "cacheSchema": "trace-1",
+      "policyVersion": "conservative/6",
+      "project": "01e48ba80b5211ad3b51c4c4e52ec1531faa923fe12f59b27e1b7f02b9e3c314",
+      "platform": "web",
+      "engineName": "web",
+      "engineSpiVersion": 1,
+      "appIdentity": "f9f49ed79c2662c7f6e0522da33af26cd0588919fce8b674530ba7c83e5d217c",
+      "agentContextDigest": "c074949dea83d1027d1c42747d8215653e6b2f8d2f11c4da09292e68be9609bf"
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "trace-1",
+  "createdAt": "2026-11-17T15:46:09.661Z",
+  "payload": {
+    "actions": [
+      {
+        "name": "tap",
+        "summary": "tap button \"The Mona Lisa: a half-length portrait o…\" in \"Picture\"",
+        "target": {
+          "role": "button",
+          "name": "The Mona Lisa: a half-length portrait of a seated woman with folded hands and a faint smile, a winding landscape behind her. (enlarge)",
+          "within": "Picture"
+        }
+      }
+    ],
+    "executor": {
+      "name": "claude-code",
+      "version": "1"
+    },
+    "recordedFor": {
+      "testId": "tests/lesson-components.e2e.ts::lesson%20components::a%20picture%20opens%20enlarged%20with%20its%20credit",
+      "targetId": "chromium",
+      "instructionDigest": "c6c2f7850845a4b566946349a2f8596ebc4e343a851d67ad2e14560c703bebbc",
+      "paramsDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "callIndex": 0,
+      "agent": "default"
+    },
+    "summary": "Tapped the Mona Lisa enlarge button in the Picture section. A dialog titled \"A face that is hard to read\" opened with the enlarged image, caption and a Close button.",
+    "startPath": "/?blocks",
+    "endPath": "/?blocks",
+    "endAnchors": [
+      {
+        "role": "status",
+        "name": "✓ Correct!",
+        "text": "Correct!"
+      },
+      {
+        "role": "status",
+        "name": "½ Partly there",
+        "text": "Partly there"
+      },
+      {
+        "role": "status",
+        "name": "↺ Not yet",
+        "text": "Not yet"
+      },
+      {
+        "role": "status",
+        "name": "All 3 steps shown."
+      },
+      {
+        "role": "status",
+        "name": "You rated it: Good"
+      },
+      {
+        "role": "log",
+        "name": "Output",
+        "text": "(no output)"
+      },
+      {
+        "role": "image",
+        "name": "The Mona Lisa: a half-length portrait of a seated woman with folded hands and a faint smile, a winding landscape behind her."
+      },
+      {
+        "role": "heading",
+        "name": "A face that is hard to read"
+      }
+    ],
+    "endWaitMs": 13591,
+    "keyedBy": {
+      "cacheSchema": "trace-1",
+      "policyVersion": "conservative/6",
+      "project": "01e48ba80b5211ad3b51c4c4e52ec1531faa923fe12f59b27e1b7f02b9e3c314",
+      "platform": "web",
+      "engineName": "web",
+      "engineSpiVersion": 1,
+      "appIdentity": "f9f49ed79c2662c7f6e0522da33af26cd0588919fce8b674530ba7c83e5d217c",
+      "agentContextDigest": "c074949dea83d1027d1c42747d8215653e6b2f8d2f11c4da09292e68be9609bf"
+    }
+  }
+}

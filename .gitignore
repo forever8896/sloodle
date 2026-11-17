@@ -63,3 +63,8 @@ ad/public/sloo-frames/
 ad/.render/
 ad/audio/mix-*.wav
 ad/audio/master-*.wav
+
+# End-to-end tests (e2e/): run reports, traces, videos, screenshots, downloads and logs.
+# The replay cache in e2e/.e2e/cache/ is committed, so a fresh clone replays without a model.
+e2e/.e2e/*
+!e2e/.e2e/cache/

@@ -1,0 +1,115 @@
+{
+  "schemaVersion": "trace-1",
+  "createdAt": "2026-11-17T15:45:32.406Z",
+  "payload": {
+    "actions": [
+      {
+        "name": "tap",
+        "summary": "tap button \"You and Sloo\" in \"Home\"",
+        "target": {
+          "role": "button",
+          "name": "You and Sloo",
+          "within": "Home"
+        }
+      },
+      {
+        "name": "tap",
+        "summary": "tap tab \"Sloo\" in \"You and Sloo\"",
+        "target": {
+          "role": "tab",
+          "name": "Sloo",
+          "within": "You and Sloo"
+        }
+      }
+    ],
+    "executor": {
+      "name": "claude-code",
+      "version": "1"
+    },
+    "recordedFor": {
+      "testId": "tests/profile-and-settings.e2e.ts::you%20and%20Sloo::the%20profile%20shows%20how%20Sloo%20teaches%2C%20with%20a%20lock%20on%20each%20dial",
+      "targetId": "chromium",
+      "instructionDigest": "f6a6bef9d2369779d805370c5852a5f45ac66e84a1fac4e83f58ab9dde4300bd",
+      "paramsDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "callIndex": 0,
+      "agent": "default"
+    },
+    "summary": "In the Home section I opened \"You and Sloo\" and selected the \"Sloo\" tab. It shows \"How Sloo teaches you\": Explanations brief, Pace steady, Challenge balanced and Hints standard. It also lists things Sloo remembers, what has worked, and recent changes.",
+    "startPath": "/?demo",
+    "endPath": "/?demo",
+    "endAnchors": [
+      {
+        "role": "heading",
+        "name": "You and Sloo"
+      },
+      {
+        "text": "Everything Sloo remembers about you, and how it teaches you. Correct or remove anything."
+      },
+      {
+        "role": "tab",
+        "name": "You"
+      },
+      {
+        "role": "tab",
+        "name": "Sloo",
+        "states": [
+          "selected"
+        ]
+      },
+      {
+        "text": "Name"
+      },
+      {
+        "role": "textbox",
+        "name": "Name",
+        "value": "Sloo"
+      },
+      {
+        "text": "Tone"
+      },
+      {
+        "role": "textbox",
+        "name": "Tone",
+        "value": "Warm, plain and direct."
+      }
+    ],
+    "goneAnchors": [
+      {
+        "role": "heading",
+        "name": "Home"
+      },
+      {
+        "text": "sloodle"
+      },
+      {
+        "text": "Learn something new"
+      },
+      {
+        "text": "Chat with Sloo"
+      },
+      {
+        "text": "Your studies, your courses"
+      },
+      {
+        "text": "Your courses"
+      },
+      {
+        "text": "1 of 6 mastered, 3 to review"
+      },
+      {
+        "text": "14 of 22 mastered"
+      }
+    ],
+    "endWaitMs": 13376,
+    "keyedBy": {
+      "cacheSchema": "trace-1",
+      "policyVersion": "conservative/6",
+      "project": "01e48ba80b5211ad3b51c4c4e52ec1531faa923fe12f59b27e1b7f02b9e3c314",
+      "platform": "web",
+      "engineName": "web",
+      "engineSpiVersion": 1,
+      "appIdentity": "f9f49ed79c2662c7f6e0522da33af26cd0588919fce8b674530ba7c83e5d217c",
+      "agentContextDigest": "c074949dea83d1027d1c42747d8215653e6b2f8d2f11c4da09292e68be9609bf"
+    }
+  }
+}

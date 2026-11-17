@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "trace-1",
+  "createdAt": "2026-11-17T15:46:57.764Z",
+  "payload": {
+    "actions": [
+      {
+        "name": "type",
+        "summary": "type \"E\" into textbox \"Blank 1 of 2\" in \"Session with Sloo\" (1 of 2)",
+        "target": {
+          "role": "textbox",
+          "name": "Blank 1 of 2",
+          "within": "Session with Sloo",
+          "position": {
+            "index": 0,
+            "of": 2
+          }
+        },
+        "value": "E"
+      },
+      {
+        "name": "type",
+        "summary": "type \"D\" into textbox \"Blank 2 of 2\" in \"Session with Sloo\" (1 of 2)",
+        "target": {
+          "role": "textbox",
+          "name": "Blank 2 of 2",
+          "within": "Session with Sloo",
+          "position": {
+            "index": 0,
+            "of": 2
+          }
+        },
+        "value": "D"
+      },
+      {
+        "name": "tap",
+        "summary": "tap button \"Check\" in \"Session with Sloo\" (1 of 2)",
+        "target": {
+          "role": "button",
+          "name": "Check",
+          "within": "Session with Sloo",
+          "position": {
+            "index": 0,
+            "of": 2
+          }
+        }
+      }
+    ],
+    "executor": {
+      "name": "claude-code",
+      "version": "1"
+    },
+    "recordedFor": {
+      "testId": "tests/session.e2e.ts::lesson%20session::Sloo%20teaches%20in%20conversation%20and%20grades%20an%20exercise%20in%20the%20lesson",
+      "targetId": "chromium",
+      "instructionDigest": "4662c47cad2cb9dcd5bfd49f25eb89569b5719cc3327df675ce7cec4ad96598f",
+      "paramsDigest": "b1062f0a83639f69661ba2dccf107b7a904e5c78d91f17ebc678ce0e13dc4ba5",
+      "callIndex": 0,
+      "agent": "default"
+    },
+    "summary": "In the Session with Sloo section, I typed E into Blank 1 and D into Blank 2 of \"The line names\" and tapped Check. The exercise now shows \"✓ Correct!\" and both blanks are disabled.",
+    "startPath": "/?demo",
+    "endPath": "/?demo",
+    "endAnchors": [
+      {
+        "role": "status",
+        "name": "Sloo is thinking"
+      },
+      {
+        "role": "textbox",
+        "name": "Blank 1 of 2",
+        "value": "E"
+      },
+      {
+        "role": "textbox",
+        "name": "Blank 2 of 2",
+        "value": "D"
+      }
+    ],
+    "goneAnchors": [
+      {
+        "text": "Drawing…"
+      }
+    ],
+    "endWaitMs": 14184,
+    "keyedBy": {
+      "cacheSchema": "trace-1",
+      "policyVersion": "conservative/6",
+      "project": "01e48ba80b5211ad3b51c4c4e52ec1531faa923fe12f59b27e1b7f02b9e3c314",
+      "platform": "web",
+      "engineName": "web",
+      "engineSpiVersion": 1,
+      "appIdentity": "f9f49ed79c2662c7f6e0522da33af26cd0588919fce8b674530ba7c83e5d217c",
+      "agentContextDigest": "c074949dea83d1027d1c42747d8215653e6b2f8d2f11c4da09292e68be9609bf"
+    }
+  }
+}

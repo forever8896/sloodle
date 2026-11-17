@@ -1,0 +1,168 @@
+{
+  "schemaVersion": "trace-1",
+  "createdAt": "2026-11-17T15:47:16.491Z",
+  "payload": {
+    "actions": [
+      {
+        "name": "tap",
+        "summary": "tap combobox \"Bottom line\" (1 of 5)",
+        "target": {
+          "role": "combobox",
+          "name": "Bottom line",
+          "position": {
+            "index": 0,
+            "of": 5
+          }
+        }
+      },
+      {
+        "name": "tap",
+        "summary": "tap option \"E\" in \"Bottom line\"",
+        "target": {
+          "role": "option",
+          "name": "E",
+          "within": "Bottom line"
+        }
+      },
+      {
+        "name": "tap",
+        "summary": "tap combobox \"Second line\" (1 of 5)",
+        "target": {
+          "role": "combobox",
+          "name": "Second line",
+          "position": {
+            "index": 0,
+            "of": 5
+          }
+        }
+      },
+      {
+        "name": "tap",
+        "summary": "tap option \"G\" in \"Second line\"",
+        "target": {
+          "role": "option",
+          "name": "G",
+          "within": "Second line"
+        }
+      },
+      {
+        "name": "tap",
+        "summary": "tap combobox \"Middle line\" (1 of 5)",
+        "target": {
+          "role": "combobox",
+          "name": "Middle line",
+          "position": {
+            "index": 0,
+            "of": 5
+          }
+        }
+      },
+      {
+        "name": "tap",
+        "summary": "tap option \"B\" in \"Middle line\"",
+        "target": {
+          "role": "option",
+          "name": "B",
+          "within": "Middle line"
+        }
+      },
+      {
+        "name": "tap",
+        "summary": "tap combobox \"Top line\" (1 of 5)",
+        "target": {
+          "role": "combobox",
+          "name": "Top line",
+          "position": {
+            "index": 0,
+            "of": 5
+          }
+        }
+      },
+      {
+        "name": "tap",
+        "summary": "tap option \"F\" in \"Top line\"",
+        "target": {
+          "role": "option",
+          "name": "F",
+          "within": "Top line"
+        }
+      },
+      {
+        "name": "tap",
+        "summary": "tap button \"Check matches\" in \"Matching\" (1 of 2)",
+        "target": {
+          "role": "button",
+          "name": "Check matches",
+          "within": "Matching",
+          "position": {
+            "index": 0,
+            "of": 2
+          }
+        }
+      }
+    ],
+    "executor": {
+      "name": "claude-code",
+      "version": "1"
+    },
+    "recordedFor": {
+      "testId": "tests/lesson-components.e2e.ts::lesson%20components::matching%20each%20staff%20line%20to%20its%20note%20is%20graded%20correct",
+      "targetId": "chromium",
+      "instructionDigest": "4ca8b335f285fc11dc22468d414ad8771eb501b071bb661f256c937a35f4ee23",
+      "paramsDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "callIndex": 0,
+      "agent": "default"
+    },
+    "summary": "In the Matching section's first card I matched Bottom=E, Second=G, Middle=B, Top=F and tapped \"Check matches\". All four lines show \"Right\" and the card shows \"✓ Correct!\".",
+    "startPath": "/?blocks",
+    "endPath": "/?blocks",
+    "endAnchors": [
+      {
+        "role": "status",
+        "name": "✓ Correct!",
+        "text": "Correct!"
+      },
+      {
+        "role": "status",
+        "name": "½ Partly there",
+        "text": "Partly there"
+      },
+      {
+        "role": "status",
+        "name": "↺ Not yet",
+        "text": "Not yet"
+      },
+      {
+        "role": "status",
+        "name": "All 3 steps shown."
+      },
+      {
+        "role": "status",
+        "name": "You rated it: Good"
+      },
+      {
+        "role": "heading",
+        "name": "Lesson components"
+      },
+      {
+        "role": "link",
+        "name": "Ordering"
+      },
+      {
+        "role": "link",
+        "name": "Matching"
+      }
+    ],
+    "endWaitMs": 14308,
+    "keyedBy": {
+      "cacheSchema": "trace-1",
+      "policyVersion": "conservative/6",
+      "project": "01e48ba80b5211ad3b51c4c4e52ec1531faa923fe12f59b27e1b7f02b9e3c314",
+      "platform": "web",
+      "engineName": "web",
+      "engineSpiVersion": 1,
+      "appIdentity": "f9f49ed79c2662c7f6e0522da33af26cd0588919fce8b674530ba7c83e5d217c",
+      "agentContextDigest": "c074949dea83d1027d1c42747d8215653e6b2f8d2f11c4da09292e68be9609bf"
+    }
+  }
+}

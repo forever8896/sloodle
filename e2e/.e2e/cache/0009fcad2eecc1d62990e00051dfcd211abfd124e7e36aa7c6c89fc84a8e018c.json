@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "trace-1",
+  "createdAt": "2026-11-17T15:44:11.260Z",
+  "payload": {
+    "actions": [
+      {
+        "name": "scrollUntil",
+        "summary": "scroll down until \"Lines to note names\" shows (1 screen)",
+        "text": "Lines to note names",
+        "direction": "down"
+      },
+      {
+        "name": "tap",
+        "summary": "tap button \"Run\" in \"Code\" (1 of 2)",
+        "target": {
+          "role": "button",
+          "name": "Run",
+          "within": "Code",
+          "position": {
+            "index": 0,
+            "of": 2
+          }
+        }
+      }
+    ],
+    "executor": {
+      "name": "claude-code",
+      "version": "1"
+    },
+    "recordedFor": {
+      "testId": "tests/lesson-components.e2e.ts::lesson%20components::the%20JavaScript%20sample%20runs%20in%20its%20sandbox%20and%20prints%20its%20output",
+      "targetId": "chromium",
+      "instructionDigest": "ec96aea38c3d0589d135cf8ef44863ee698c13b7dfd1c986dc7e37966a78f042",
+      "paramsDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "callIndex": 0,
+      "agent": "default"
+    },
+    "summary": "Tapped Run on the \"Lines to note names\" JavaScript sample. Output shows Line 1: E, Line 2: G, Line 3: B, Line 4: D, Line 5: F. The button briefly read \"Stop\" in the last result.",
+    "startPath": "/?blocks",
+    "endPath": "/?blocks",
+    "endAnchors": [
+      {
+        "role": "status",
+        "name": "✓ Correct!",
+        "text": "Correct!"
+      },
+      {
+        "role": "status",
+        "name": "½ Partly there",
+        "text": "Partly there"
+      },
+      {
+        "role": "status",
+        "name": "↺ Not yet",
+        "text": "Not yet"
+      },
+      {
+        "role": "status",
+        "name": "All 3 steps shown."
+      },
+      {
+        "role": "status",
+        "name": "You rated it: Good"
+      },
+      {
+        "role": "status",
+        "name": "Finished."
+      },
+      {
+        "role": "heading",
+        "name": "Lesson components"
+      },
+      {
+        "role": "link",
+        "name": "Ordering"
+      }
+    ],
+    "endWaitMs": 14501,
+    "keyedBy": {
+      "cacheSchema": "trace-1",
+      "policyVersion": "conservative/6",
+      "project": "01e48ba80b5211ad3b51c4c4e52ec1531faa923fe12f59b27e1b7f02b9e3c314",
+      "platform": "web",
+      "engineName": "web",
+      "engineSpiVersion": 1,
+      "appIdentity": "f9f49ed79c2662c7f6e0522da33af26cd0588919fce8b674530ba7c83e5d217c",
+      "agentContextDigest": "c074949dea83d1027d1c42747d8215653e6b2f8d2f11c4da09292e68be9609bf"
+    }
+  }
+}

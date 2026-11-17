@@ -369,6 +369,25 @@ bun run schema                   # regenerate sidecar/schema/ after changing for
 The 1440px masters of Sloo's clips and their mattes are not in the repository (they are large). The app does not need
 them: it plays the packed clips in `public/sloo/`. They are only needed to re-pack the clips or re-render the ad.
 
+### End-to-end tests
+
+`e2e/` holds an agentic end-to-end suite written with [e2e](https://e2e.com) (Apache-2.0). Each test describes
+goals in plain language ("accept the change Sloo proposed to the course") and checks the result with exact
+locators. The tests drive the interface in a browser in demo mode, so they need neither the engine nor your data.
+
+When an agent step passes, its actions are recorded in `e2e/.e2e/cache/`, which is committed. Later runs replay
+those recordings without calling a model until the interface changes.
+
+```sh
+(cd e2e && pnpm install && pnpm exec e2e-web install chromium)
+pnpm test:e2e:replay   # replay only: no model, no login (what CI runs)
+pnpm test:e2e          # records new or changed steps
+```
+
+Recording runs agent steps on Claude Code through `@e2e-dev/acp`, using your `claude` login or
+`ANTHROPIC_API_KEY`. The runner starts its own Vite server on a free port. Reports, traces and videos go to
+`e2e/.e2e/`, which is ignored except for the cache.
+
 ## Status and roadmap
 
 sloodle is early and moving quickly. Honest state of things:

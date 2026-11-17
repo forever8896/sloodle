@@ -1,0 +1,104 @@
+{
+  "schemaVersion": "trace-1",
+  "createdAt": "2026-11-17T15:45:18.091Z",
+  "payload": {
+    "actions": [
+      {
+        "name": "tap",
+        "summary": "tap button \"Continue\"",
+        "target": {
+          "role": "button",
+          "name": "Continue"
+        }
+      }
+    ],
+    "executor": {
+      "name": "claude-code",
+      "version": "1"
+    },
+    "recordedFor": {
+      "testId": "tests/onboarding.e2e.ts::first%20run::Sloo%20welcomes%20a%20new%20learner%20and%20the%20welcome%20ends%20on%20Home",
+      "targetId": "chromium",
+      "instructionDigest": "dfdae583786b0c5b96afc2f1a57162980ed782a9095ad8d546811269014d97e7",
+      "paramsDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "callIndex": 0,
+      "agent": "default"
+    },
+    "summary": "I kept the Claude Code login selected and tapped Continue. Onboarding is now on step 6 of 6. Sloo asks \"What would you love to learn?\", and \"Let's begin\" is disabled until a topic is entered.",
+    "startPath": "/?demo&onboarding",
+    "endPath": "/?demo&onboarding",
+    "endAnchors": [
+      {
+        "text": "Now the fun part. What would you love to learn?"
+      },
+      {
+        "text": "What do you want to learn?"
+      },
+      {
+        "role": "textbox",
+        "name": "What do you want to learn?",
+        "placeholder": "Anything. A language, calculus, how engines work…"
+      },
+      {
+        "role": "button",
+        "name": "Reading sheet music"
+      },
+      {
+        "role": "button",
+        "name": "Conversational Spanish"
+      },
+      {
+        "role": "button",
+        "name": "How engines work"
+      },
+      {
+        "role": "button",
+        "name": "Statistics for work"
+      },
+      {
+        "role": "button",
+        "name": "I'll decide later"
+      }
+    ],
+    "goneAnchors": [
+      {
+        "role": "status",
+        "name": "✓ Signed in to Claude Code (demo data)."
+      },
+      {
+        "text": "My thinking is all set up."
+      },
+      {
+        "role": "heading",
+        "name": "What powers Sloo"
+      },
+      {
+        "text": "sloodle runs on your computer and uses Claude for the thinking: your Claude Code login, or an Anthropic API key."
+      },
+      {
+        "text": "Claude Code login"
+      },
+      {
+        "text": "Uses the Claude Code installed here, signed in by you. sloodle never reads your login."
+      },
+      {
+        "role": "radio",
+        "name": "Anthropic API key Kept in sloodle's settings file, readable only by your user account."
+      },
+      {
+        "text": "Anthropic API key"
+      }
+    ],
+    "endWaitMs": 12842,
+    "keyedBy": {
+      "cacheSchema": "trace-1",
+      "policyVersion": "conservative/6",
+      "project": "01e48ba80b5211ad3b51c4c4e52ec1531faa923fe12f59b27e1b7f02b9e3c314",
+      "platform": "web",
+      "engineName": "web",
+      "engineSpiVersion": 1,
+      "appIdentity": "f9f49ed79c2662c7f6e0522da33af26cd0588919fce8b674530ba7c83e5d217c",
+      "agentContextDigest": "c074949dea83d1027d1c42747d8215653e6b2f8d2f11c4da09292e68be9609bf"
+    }
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "schemaVersion": "trace-1",
+  "createdAt": "2026-11-17T15:45:54.262Z",
+  "payload": {
+    "actions": [
+      {
+        "name": "tap",
+        "summary": "tap button \"Settings\" in \"Home\"",
+        "target": {
+          "role": "button",
+          "name": "Settings",
+          "within": "Home"
+        }
+      },
+      {
+        "name": "check",
+        "summary": "check radio \"Dark\" in \"Appearance\"",
+        "target": {
+          "role": "radio",
+          "name": "Dark",
+          "within": "Appearance"
+        },
+        "checked": true
+      }
+    ],
+    "executor": {
+      "name": "claude-code",
+      "version": "1"
+    },
+    "recordedFor": {
+      "testId": "tests/profile-and-settings.e2e.ts::settings::appearance%20switches%20to%20dark%20and%20sounds%20switch%20off",
+      "targetId": "chromium",
+      "instructionDigest": "5085e2ace06bba273ce887615a87fb91dbf82ae08df49a1cc1fd34de4be4bd41",
+      "paramsDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "callIndex": 0,
+      "agent": "default"
+    },
+    "summary": "In the Home section I opened Settings and selected \"Dark\" under Appearance. The Dark radio now shows as checked and \"Match system\" is unchecked. The Settings dialog is still open.",
+    "startPath": "/?demo",
+    "endPath": "/?demo",
+    "endAnchors": [
+      {
+        "role": "status",
+        "name": "70%"
+      },
+      {
+        "role": "status",
+        "name": "✓ Signed in to Claude Code (demo data).",
+        "text": "Signed in to Claude Code (demo data)."
+      },
+      {
+        "role": "heading",
+        "name": "Settings"
+      },
+      {
+        "text": "Choose what powers sloodle on this computer."
+      },
+      {
+        "text": "Appearance"
+      },
+      {
+        "role": "radio",
+        "name": "Match system"
+      },
+      {
+        "role": "radio",
+        "name": "Light"
+      },
+      {
+        "role": "radio",
+        "name": "Dark",
+        "states": [
+          "checked"
+        ]
+      }
+    ],
+    "goneAnchors": [
+      {
+        "role": "heading",
+        "name": "Home"
+      },
+      {
+        "text": "sloodle"
+      },
+      {
+        "text": "Learn something new"
+      },
+      {
+        "text": "Chat with Sloo"
+      },
+      {
+        "text": "Your studies, your courses"
+      },
+      {
+        "text": "Your courses"
+      },
+      {
+        "text": "1 of 6 mastered, 3 to review"
+      },
+      {
+        "text": "14 of 22 mastered"
+      }
+    ],
+    "endWaitMs": 14199,
+    "keyedBy": {
+      "cacheSchema": "trace-1",
+      "policyVersion": "conservative/6",
+      "project": "01e48ba80b5211ad3b51c4c4e52ec1531faa923fe12f59b27e1b7f02b9e3c314",
+      "platform": "web",
+      "engineName": "web",
+      "engineSpiVersion": 1,
+      "appIdentity": "f9f49ed79c2662c7f6e0522da33af26cd0588919fce8b674530ba7c83e5d217c",
+      "agentContextDigest": "c074949dea83d1027d1c42747d8215653e6b2f8d2f11c4da09292e68be9609bf"
+    }
+  }
+}

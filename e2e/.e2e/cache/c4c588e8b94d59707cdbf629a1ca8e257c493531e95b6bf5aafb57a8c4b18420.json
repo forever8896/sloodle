@@ -1,0 +1,113 @@
+{
+  "schemaVersion": "trace-1",
+  "createdAt": "2026-11-17T15:45:18.088Z",
+  "payload": {
+    "actions": [
+      {
+        "name": "tap",
+        "summary": "tap button \"Pictures and diagrams\" in \"Short explanations, then practice\"",
+        "target": {
+          "role": "button",
+          "name": "Pictures and diagrams",
+          "within": "Short explanations, then practice"
+        }
+      },
+      {
+        "name": "tap",
+        "summary": "tap button \"Continue\"",
+        "target": {
+          "role": "button",
+          "name": "Continue"
+        }
+      }
+    ],
+    "executor": {
+      "name": "claude-code",
+      "version": "1"
+    },
+    "recordedFor": {
+      "testId": "tests/onboarding.e2e.ts::first%20run::Sloo%20welcomes%20a%20new%20learner%20and%20the%20welcome%20ends%20on%20Home",
+      "targetId": "chromium",
+      "instructionDigest": "64427fb3a232e351a1b4f23367b03ed730e7962cb2f7d3bcec8719cb7a44dbff",
+      "paramsDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "callIndex": 0,
+      "agent": "default"
+    },
+    "summary": "Selected \"Pictures and diagrams\", which showed as pressed, then tapped Continue. Onboarding is now on step 4 of 6, \"Voice and sound\".",
+    "startPath": "/?demo&onboarding",
+    "endPath": "/?demo&onboarding",
+    "endAnchors": [
+      {
+        "text": "I can read my replies aloud, and you can answer by speaking."
+      },
+      {
+        "role": "heading",
+        "name": "Voice and sound"
+      },
+      {
+        "text": "You can switch this on or off in any lesson."
+      },
+      {
+        "role": "button",
+        "name": "Hear my voice"
+      },
+      {
+        "text": "Soft chimes for answers, reviews and growing skills."
+      },
+      {
+        "role": "button",
+        "name": "Play a sample"
+      },
+      {
+        "text": "Speaking your answers: press the microphone in a lesson and talk. Your computer will ask once whether sloodle may use the microphone, and what you say is turned into text on this computer."
+      },
+      {
+        "role": "list",
+        "name": "Step 4 of 6"
+      }
+    ],
+    "goneAnchors": [
+      {
+        "text": "Nice to meet you, Ada. How do you like to learn?"
+      },
+      {
+        "role": "heading",
+        "name": "How do you like to learn?"
+      },
+      {
+        "text": "Pick any that sound like you. They're a starting point: I'll also notice what actually works for you, and you can change them later."
+      },
+      {
+        "role": "button",
+        "name": "Short explanations, then practice"
+      },
+      {
+        "role": "button",
+        "name": "Plenty of worked examples"
+      },
+      {
+        "role": "button",
+        "name": "Pictures and diagrams"
+      },
+      {
+        "role": "button",
+        "name": "Real-world uses first"
+      },
+      {
+        "role": "button",
+        "name": "Push me a little"
+      }
+    ],
+    "endWaitMs": 12893,
+    "keyedBy": {
+      "cacheSchema": "trace-1",
+      "policyVersion": "conservative/6",
+      "project": "01e48ba80b5211ad3b51c4c4e52ec1531faa923fe12f59b27e1b7f02b9e3c314",
+      "platform": "web",
+      "engineName": "web",
+      "engineSpiVersion": 1,
+      "appIdentity": "f9f49ed79c2662c7f6e0522da33af26cd0588919fce8b674530ba7c83e5d217c",
+      "agentContextDigest": "c074949dea83d1027d1c42747d8215653e6b2f8d2f11c4da09292e68be9609bf"
+    }
+  }
+}

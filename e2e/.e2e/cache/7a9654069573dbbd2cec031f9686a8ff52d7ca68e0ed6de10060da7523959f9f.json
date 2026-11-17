@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "trace-1",
+  "createdAt": "2026-11-17T15:44:32.160Z",
+  "payload": {
+    "actions": [
+      {
+        "name": "tap",
+        "summary": "tap button \"Bud: got it once Read Treble Clef and P…\" in \"1 of 6 mastered, 3 to review\" (1 of 5)",
+        "target": {
+          "role": "button",
+          "name": "Bud: got it once Read Treble Clef and Play Along 1 of 6 mastered, 3 to review",
+          "within": "1 of 6 mastered, 3 to review",
+          "position": {
+            "index": 0,
+            "of": 5
+          }
+        }
+      }
+    ],
+    "executor": {
+      "name": "claude-code",
+      "version": "1"
+    },
+    "recordedFor": {
+      "testId": "tests/course.e2e.ts::course::opening%20a%20course%20shows%20its%20path%20of%20modules%2C%20lessons%20and%20progress",
+      "targetId": "chromium",
+      "instructionDigest": "bfa1d40863e091684356b66fd81a28a294f1062beeb05667d74479439f35cd53",
+      "paramsDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "callIndex": 0,
+      "agent": "default"
+    },
+    "summary": "Tapped the course \"Read Treble Clef and Play Along\" in the Home section. Home's main area now shows that course's page: heading, \"Start a session\", \"Review 3 due\", and the path.",
+    "startPath": "/?demo",
+    "endPath": "/?demo",
+    "goneAnchors": [
+      {
+        "text": "Hi Sam! Tell me what you'd love to be able to do, and we'll grow it together, one small step at a time."
+      },
+      {
+        "text": "What do you want to learn?"
+      },
+      {
+        "role": "textbox",
+        "name": "What do you want to learn?",
+        "placeholder": "Anything. A language, calculus, how engines work, reading sheet music…"
+      },
+      {
+        "text": "We talk"
+      },
+      {
+        "text": "I research"
+      },
+      {
+        "text": "You grow"
+      },
+      {
+        "role": "button",
+        "name": "Let's begin"
+      },
+      {
+        "text": "Someone shared a course with you?"
+      }
+    ],
+    "endWaitMs": 13770,
+    "keyedBy": {
+      "cacheSchema": "trace-1",
+      "policyVersion": "conservative/6",
+      "project": "01e48ba80b5211ad3b51c4c4e52ec1531faa923fe12f59b27e1b7f02b9e3c314",
+      "platform": "web",
+      "engineName": "web",
+      "engineSpiVersion": 1,
+      "appIdentity": "f9f49ed79c2662c7f6e0522da33af26cd0588919fce8b674530ba7c83e5d217c",
+      "agentContextDigest": "c074949dea83d1027d1c42747d8215653e6b2f8d2f11c4da09292e68be9609bf"
+    }
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "trace-1",
+  "createdAt": "2026-11-17T15:50:58.179Z",
+  "payload": {
+    "actions": [
+      {
+        "name": "scrollUntil",
+        "summary": "scroll down until \"Flashcard\" shows (1 screen)",
+        "text": "Flashcard",
+        "direction": "down"
+      },
+      {
+        "name": "tap",
+        "summary": "tap button \"Answer in your head, then flip\" in \"Flashcard\" (1 of 2)",
+        "target": {
+          "role": "button",
+          "name": "Answer in your head, then flip",
+          "within": "Flashcard",
+          "position": {
+            "index": 0,
+            "of": 2
+          }
+        }
+      },
+      {
+        "name": "tap",
+        "summary": "tap button \"Good Recalled it\" in \"Forgot\" (1 of 2)",
+        "target": {
+          "role": "button",
+          "name": "Good Recalled it",
+          "within": "Forgot",
+          "position": {
+            "index": 0,
+            "of": 2
+          }
+        }
+      }
+    ],
+    "executor": {
+      "name": "claude-code",
+      "version": "1"
+    },
+    "recordedFor": {
+      "testId": "tests/lesson-components.e2e.ts::lesson%20components::a%20flashcard%20flips%20and%20takes%20a%20recall%20rating",
+      "targetId": "chromium",
+      "instructionDigest": "76ac41a10d7030bb5d2b8401b9ce09cfb99e73d38e34187e6d76992e2e6a954a",
+      "paramsDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "callIndex": 0,
+      "agent": "default"
+    },
+    "summary": "In the Flashcard section I flipped the first card, which showed the answer \"FACE: F, A, C, E.\" I then tapped Good, and the card now shows \"You rated it: Good\".",
+    "startPath": "/?blocks",
+    "endPath": "/?blocks",
+    "endAnchors": [
+      {
+        "role": "status",
+        "name": "✓ Correct!",
+        "text": "Correct!"
+      },
+      {
+        "role": "status",
+        "name": "½ Partly there",
+        "text": "Partly there"
+      },
+      {
+        "role": "status",
+        "name": "↺ Not yet",
+        "text": "Not yet"
+      },
+      {
+        "role": "status",
+        "name": "All 3 steps shown."
+      },
+      {
+        "role": "status",
+        "name": "You rated it: Good"
+      },
+      {
+        "role": "heading",
+        "name": "Lesson components"
+      },
+      {
+        "role": "link",
+        "name": "Ordering"
+      },
+      {
+        "role": "link",
+        "name": "Matching"
+      }
+    ],
+    "endWaitMs": 15378,
+    "keyedBy": {
+      "cacheSchema": "trace-1",
+      "policyVersion": "conservative/6",
+      "project": "01e48ba80b5211ad3b51c4c4e52ec1531faa923fe12f59b27e1b7f02b9e3c314",
+      "platform": "web",
+      "engineName": "web",
+      "engineSpiVersion": 1,
+      "appIdentity": "f9f49ed79c2662c7f6e0522da33af26cd0588919fce8b674530ba7c83e5d217c",
+      "agentContextDigest": "c074949dea83d1027d1c42747d8215653e6b2f8d2f11c4da09292e68be9609bf"
+    }
+  }
+}
