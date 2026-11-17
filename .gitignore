@@ -68,3 +68,7 @@ ad/audio/master-*.wav
 # The replay cache in e2e/.e2e/cache/ is committed, so a fresh clone replays without a model.
 e2e/.e2e/*
 !e2e/.e2e/cache/
+
+# Landing page review screenshots and scratch stills
+media/site/
+media/ad/a.png
