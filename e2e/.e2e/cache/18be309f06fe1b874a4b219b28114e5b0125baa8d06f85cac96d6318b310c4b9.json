@@ -1,18 +1,14 @@
 {
   "schemaVersion": "trace-1",
-  "createdAt": "2026-11-17T15:47:16.491Z",
+  "createdAt": "2026-11-17T19:19:48.214Z",
   "payload": {
     "actions": [
       {
         "name": "tap",
-        "summary": "tap combobox \"Bottom line\" (1 of 5)",
+        "summary": "tap combobox \"Bottom line\"",
         "target": {
           "role": "combobox",
-          "name": "Bottom line",
-          "position": {
-            "index": 0,
-            "of": 5
-          }
+          "name": "Bottom line"
         }
       },
       {
@@ -26,14 +22,10 @@
       },
       {
         "name": "tap",
-        "summary": "tap combobox \"Second line\" (1 of 5)",
+        "summary": "tap combobox \"Second line\"",
         "target": {
           "role": "combobox",
-          "name": "Second line",
-          "position": {
-            "index": 0,
-            "of": 5
-          }
+          "name": "Second line"
         }
       },
       {
@@ -47,14 +39,10 @@
       },
       {
         "name": "tap",
-        "summary": "tap combobox \"Middle line\" (1 of 5)",
+        "summary": "tap combobox \"Middle line\"",
         "target": {
           "role": "combobox",
-          "name": "Middle line",
-          "position": {
-            "index": 0,
-            "of": 5
-          }
+          "name": "Middle line"
         }
       },
       {
@@ -68,14 +56,10 @@
       },
       {
         "name": "tap",
-        "summary": "tap combobox \"Top line\" (1 of 5)",
+        "summary": "tap combobox \"Top line\"",
         "target": {
           "role": "combobox",
-          "name": "Top line",
-          "position": {
-            "index": 0,
-            "of": 5
-          }
+          "name": "Top line"
         }
       },
       {
@@ -89,15 +73,11 @@
       },
       {
         "name": "tap",
-        "summary": "tap button \"Check matches\" in \"Matching\" (1 of 2)",
+        "summary": "tap button \"Check matches\" in \"Session with Sloo\"",
         "target": {
           "role": "button",
           "name": "Check matches",
-          "within": "Matching",
-          "position": {
-            "index": 0,
-            "of": 2
-          }
+          "within": "Session with Sloo"
         }
       }
     ],
@@ -106,54 +86,69 @@
       "version": "1"
     },
     "recordedFor": {
-      "testId": "tests/lesson-components.e2e.ts::lesson%20components::matching%20each%20staff%20line%20to%20its%20note%20is%20graded%20correct",
+      "testId": "tests/lesson-components.e2e.ts::lesson%20components%20in%20a%20session::matching%20each%20staff%20line%20to%20its%20note%20is%20graded%20correct",
       "targetId": "chromium",
-      "instructionDigest": "4ca8b335f285fc11dc22468d414ad8771eb501b071bb661f256c937a35f4ee23",
+      "instructionDigest": "68c207d8e74c272097dc4dd65e9c0b7a26eae3d4e637cff81854dd39ee2f6357",
       "paramsDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
       "callIndex": 0,
       "agent": "default"
     },
-    "summary": "In the Matching section's first card I matched Bottom=E, Second=G, Middle=B, Top=F and tapped \"Check matches\". All four lines show \"Right\" and the card shows \"✓ Correct!\".",
-    "startPath": "/?blocks",
-    "endPath": "/?blocks",
+    "summary": "In the Session with Sloo section I matched Bottom line=E, Second line=G, Middle line=B and Top line=F, then tapped \"Check matches\". All four rows now read \"Right\", and a \"✓ Correct!\" status shows.",
+    "startPath": "/?demo",
+    "endPath": "/?demo",
     "endAnchors": [
       {
-        "role": "status",
-        "name": "✓ Correct!",
-        "text": "Correct!"
+        "text": "Right"
       },
       {
-        "role": "status",
-        "name": "½ Partly there",
-        "text": "Partly there"
+        "text": "B"
       },
       {
-        "role": "status",
-        "name": "↺ Not yet",
-        "text": "Not yet"
+        "text": "That's right, and without a hint. Let's keep that going."
       },
       {
-        "role": "status",
-        "name": "All 3 steps shown."
+        "role": "listitem",
+        "name": "Bottom line Right"
       },
       {
-        "role": "status",
-        "name": "You rated it: Good"
+        "role": "listitem",
+        "name": "Second line Right"
       },
       {
-        "role": "heading",
-        "name": "Lesson components"
+        "role": "listitem",
+        "name": "Middle line Right"
       },
       {
-        "role": "link",
-        "name": "Ordering"
-      },
-      {
-        "role": "link",
-        "name": "Matching"
+        "role": "listitem",
+        "name": "Top line Right"
       }
     ],
-    "endWaitMs": 14308,
+    "goneAnchors": [
+      {
+        "text": "Choose a match"
+      },
+      {
+        "role": "button",
+        "name": "Check matches"
+      },
+      {
+        "role": "listitem",
+        "name": "Bottom line"
+      },
+      {
+        "role": "listitem",
+        "name": "Second line"
+      },
+      {
+        "role": "listitem",
+        "name": "Middle line"
+      },
+      {
+        "role": "listitem",
+        "name": "Top line"
+      }
+    ],
+    "endWaitMs": 19051,
     "keyedBy": {
       "cacheSchema": "trace-1",
       "policyVersion": "conservative/6",

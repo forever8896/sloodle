@@ -1,10 +1,11 @@
 import { readFile } from 'node:fs/promises';
 import { describe, test } from '@e2e-dev/web';
 import { expect } from 'e2e';
+import { openSettled } from '../support/settled';
 
 describe('course', () => {
-  test('opening a course shows its path of modules, lessons and progress', async ({ app, agent, screen }) => {
-    await app.open('/?demo');
+  test('opening a course shows its path of modules, lessons and progress', async ({ app, agent, screen, browser }) => {
+    await openSettled({ app, screen, browser }, '/?demo');
     const home = screen.getByRole('region', 'Home');
 
     await agent.act('in the Home section, open the course "Read Treble Clef and Play Along"');
@@ -18,7 +19,7 @@ describe('course', () => {
   });
 
   test('a course can be shared as a file', async ({ app, agent, screen, browser }) => {
-    await app.open('/?demo');
+    await openSettled({ app, screen, browser }, '/?demo');
     const course = screen.getByRole('region', 'Course');
 
     const file = await browser.waitForDownload(() => agent.act('in the Course section, share this course as a file'));

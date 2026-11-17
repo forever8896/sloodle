@@ -3,14 +3,15 @@ import { web } from '@e2e-dev/web';
 import { claudeCode } from '@e2e-dev/acp';
 
 // The interface in a plain browser, in demo mode: sample data, no engine, no model behind the app.
-// The runner starts its own Vite dev server on a free port, so it never collides with `pnpm dev` on 1420.
+// The runner builds the interface and serves the build on a free port (support/serve.mjs), so it
+// never collides with `pnpm dev` on 1420, and no dev-server reload can land in the middle of a step.
 const app = {
   url: 'http://127.0.0.1:0',
   command: {
-    executable: 'pnpm',
-    args: ['--dir', '..', 'exec', 'vite', '--host', '127.0.0.1', '--port', '{port}', '--strictPort'],
-    log: '.e2e/logs/vite.log',
-    startupTimeout: 90_000,
+    executable: 'node',
+    args: ['support/serve.mjs', '{port}'],
+    log: '.e2e/logs/serve.log',
+    startupTimeout: 120_000,
   },
 };
 
@@ -51,6 +52,7 @@ export default {
   },
   cache: { mode: process.env.CI ? 'read-only' : 'read-write', dir: '.e2e/cache' },
   timeout: 180_000,
+  assertionTimeout: 15_000,
   reporters: ['list'],
   video: 'retain-on-failure',
   trace: 'retain-on-failure',

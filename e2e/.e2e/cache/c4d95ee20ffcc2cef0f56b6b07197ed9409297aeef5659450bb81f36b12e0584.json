@@ -1,6 +1,6 @@
 {
   "schemaVersion": "trace-1",
-  "createdAt": "2026-11-17T15:44:42.226Z",
+  "createdAt": "2026-11-17T16:20:27.647Z",
   "payload": {
     "actions": [
       {
@@ -25,7 +25,7 @@
       "callIndex": 0,
       "agent": "default"
     },
-    "summary": "Tapped \"Share this course as a file\" in the Course section. A status appeared: \"Downloaded read-treble-clef-and-play-along.sloodle.json.\"",
+    "summary": "In the Course section I tapped \"Share this course as a file\". A status appeared reading \"Downloaded read-treble-clef-and-play-along.sloodle.json.\"",
     "startPath": "/?demo",
     "endPath": "/?demo",
     "endAnchors": [
@@ -34,12 +34,7 @@
         "name": "Downloaded read-treble-clef-and-play-along.sloodle.json."
       }
     ],
-    "goneAnchors": [
-      {
-        "text": "Drawing…"
-      }
-    ],
-    "endWaitMs": 13340,
+    "endWaitMs": 14215,
     "keyedBy": {
       "cacheSchema": "trace-1",
       "policyVersion": "conservative/6",

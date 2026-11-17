@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "trace-1",
+  "createdAt": "2026-11-17T19:12:07.095Z",
+  "payload": {
+    "actions": [
+      {
+        "name": "type",
+        "summary": "type \"Hold a ten-minute conversation in Spani…\" into textbox \"What do you want to learn?\" in \"Home\"",
+        "target": {
+          "role": "textbox",
+          "name": "What do you want to learn?",
+          "placeholder": "Anything. A language, calculus, how engines work, reading sheet music…",
+          "within": "Home"
+        },
+        "value": "Hold a ten-minute conversation in Spanish on a trip to Mexico"
+      }
+    ],
+    "executor": {
+      "name": "claude-code",
+      "version": "1"
+    },
+    "recordedFor": {
+      "testId": "tests/home.e2e.ts::home::a%20goal%20from%20Home%20starts%20building%20a%20course",
+      "targetId": "chromium",
+      "instructionDigest": "ae202857bb5368b7ef6e63d207b3738d60d017cbbce1bfab744ec40b20736dd4",
+      "paramsDigest": "7ad16061798959adcd55232d2131e8daa17711a566e5b29669d4bec403b6dab9",
+      "callIndex": 0,
+      "agent": "default"
+    },
+    "summary": "Typed the goal \"Hold a ten-minute conversation in Spanish on a trip to Mexico\" into the Home section's \"What do you want to learn?\" box. The \"Let's begin\" button is now enabled. I didn't tap it.",
+    "startPath": "/?demo",
+    "endPath": "/?demo",
+    "endAnchors": [
+      {
+        "role": "textbox",
+        "name": "What do you want to learn?",
+        "text": "Hold a ten-minute conversation in Spanish on a trip to Mexico",
+        "placeholder": "Anything. A language, calculus, how engines work, reading sheet music…",
+        "value": "Hold a ten-minute conversation in Spanish on a trip to Mexico"
+      }
+    ],
+    "goneAnchors": [
+      {
+        "role": "textbox",
+        "name": "What do you want to learn?",
+        "placeholder": "Anything. A language, calculus, how engines work, reading sheet music…"
+      }
+    ],
+    "endWaitMs": 17965,
+    "keyedBy": {
+      "cacheSchema": "trace-1",
+      "policyVersion": "conservative/6",
+      "project": "01e48ba80b5211ad3b51c4c4e52ec1531faa923fe12f59b27e1b7f02b9e3c314",
+      "platform": "web",
+      "engineName": "web",
+      "engineSpiVersion": 1,
+      "appIdentity": "f9f49ed79c2662c7f6e0522da33af26cd0588919fce8b674530ba7c83e5d217c",
+      "agentContextDigest": "c074949dea83d1027d1c42747d8215653e6b2f8d2f11c4da09292e68be9609bf"
+    }
+  }
+}

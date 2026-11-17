@@ -1,6 +1,6 @@
 {
   "schemaVersion": "trace-1",
-  "createdAt": "2026-11-17T15:46:57.764Z",
+  "createdAt": "2026-11-17T16:22:51.477Z",
   "payload": {
     "actions": [
       {
@@ -57,14 +57,10 @@
       "callIndex": 0,
       "agent": "default"
     },
-    "summary": "In the Session with Sloo section, I typed E into Blank 1 and D into Blank 2 of \"The line names\" and tapped Check. The exercise now shows \"✓ Correct!\" and both blanks are disabled.",
+    "summary": "In the Session with Sloo section's \"The line names\" exercise, I typed E in blank 1 and D in blank 2, then tapped Check. The exercise shows \"✓ Correct!\", both blanks are now disabled, and Sloo shows \"Sloo is thinking\".",
     "startPath": "/?demo",
     "endPath": "/?demo",
     "endAnchors": [
-      {
-        "role": "status",
-        "name": "Sloo is thinking"
-      },
       {
         "role": "textbox",
         "name": "Blank 1 of 2",
@@ -74,14 +70,12 @@
         "role": "textbox",
         "name": "Blank 2 of 2",
         "value": "D"
-      }
-    ],
-    "goneAnchors": [
+      },
       {
-        "text": "Drawing…"
+        "text": "That's right, and without a hint. Let's keep that going."
       }
     ],
-    "endWaitMs": 14184,
+    "endWaitMs": 14176,
     "keyedBy": {
       "cacheSchema": "trace-1",
       "policyVersion": "conservative/6",

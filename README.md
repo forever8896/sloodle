@@ -387,7 +387,7 @@ pnpm test:e2e          # records new or changed steps
 ```
 
 Recording runs agent steps on Claude Code through `@e2e-dev/acp`, using your `claude` login or
-`ANTHROPIC_API_KEY`. The runner starts its own Vite server on a free port. Reports, traces and videos go to
+`ANTHROPIC_API_KEY`. The runner builds the interface and serves the build on a free port, so the running dev server is never touched. Reports, traces and videos go to
 `e2e/.e2e/`, which is ignored except for the cache.
 
 ## Status and roadmap

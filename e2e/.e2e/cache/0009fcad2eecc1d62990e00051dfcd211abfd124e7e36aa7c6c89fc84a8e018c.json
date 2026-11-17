@@ -1,14 +1,8 @@
 {
   "schemaVersion": "trace-1",
-  "createdAt": "2026-11-17T15:44:11.260Z",
+  "createdAt": "2026-11-17T16:22:04.006Z",
   "payload": {
     "actions": [
-      {
-        "name": "scrollUntil",
-        "summary": "scroll down until \"Lines to note names\" shows (1 screen)",
-        "text": "Lines to note names",
-        "direction": "down"
-      },
       {
         "name": "tap",
         "summary": "tap button \"Run\" in \"Code\" (1 of 2)",
@@ -35,47 +29,38 @@
       "callIndex": 0,
       "agent": "default"
     },
-    "summary": "Tapped Run on the \"Lines to note names\" JavaScript sample. Output shows Line 1: E, Line 2: G, Line 3: B, Line 4: D, Line 5: F. The button briefly read \"Stop\" in the last result.",
+    "summary": "I tapped Run on the \"Lines to note names\" JavaScript sample. The Output log now shows Line 1: E, Line 2: G, Line 3: B, Line 4: D, Line 5: F. The button still reads \"Stop\" in the last result, so the run may not have finished.",
     "startPath": "/?blocks",
     "endPath": "/?blocks",
     "endAnchors": [
       {
         "role": "status",
-        "name": "✓ Correct!",
-        "text": "Correct!"
-      },
-      {
-        "role": "status",
-        "name": "½ Partly there",
-        "text": "Partly there"
-      },
-      {
-        "role": "status",
-        "name": "↺ Not yet",
-        "text": "Not yet"
-      },
-      {
-        "role": "status",
-        "name": "All 3 steps shown."
-      },
-      {
-        "role": "status",
-        "name": "You rated it: Good"
-      },
-      {
-        "role": "status",
         "name": "Finished."
       },
       {
-        "role": "heading",
-        "name": "Lesson components"
+        "role": "button",
+        "name": "Run again"
       },
       {
-        "role": "link",
-        "name": "Ordering"
+        "text": "Output"
+      },
+      {
+        "text": "Line 1: E"
+      },
+      {
+        "text": "Line 2: G"
+      },
+      {
+        "text": "Line 3: B"
+      },
+      {
+        "text": "Line 4: D"
+      },
+      {
+        "text": "Line 5: F"
       }
     ],
-    "endWaitMs": 14501,
+    "endWaitMs": 15741,
     "keyedBy": {
       "cacheSchema": "trace-1",
       "policyVersion": "conservative/6",

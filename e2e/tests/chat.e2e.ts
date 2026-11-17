@@ -1,9 +1,10 @@
 import { describe, test } from '@e2e-dev/web';
 import { expect } from 'e2e';
+import { openSettled } from '../support/settled';
 
 describe('chat with Sloo', () => {
-  test('a proposed course change shows Now and After, and accepting it applies it', async ({ app, agent, screen }) => {
-    await app.open('/?demo');
+  test('a proposed course change shows Now and After, and accepting it applies it', async ({ app, agent, screen, browser }) => {
+    await openSettled({ app, screen, browser }, '/?demo');
     const chat = screen.getByRole('region', 'Chat with Sloo');
     const proposal = chat.getByRole('article', 'Proposed change to Read Treble Clef and Play Along');
     await expect(proposal.getByRole('region', 'Now')).toBeVisible();

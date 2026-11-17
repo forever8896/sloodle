@@ -1,6 +1,6 @@
 {
   "schemaVersion": "trace-1",
-  "createdAt": "2026-11-17T15:44:44.676Z",
+  "createdAt": "2026-11-17T16:20:39.017Z",
   "payload": {
     "actions": [
       {
@@ -27,7 +27,7 @@
       "callIndex": 0,
       "agent": "default"
     },
-    "summary": "Typed the goal into the Home section's \"What do you want to learn?\" box. \"Let's begin\" is now enabled.",
+    "summary": "Typed the goal into the Home section's \"What do you want to learn?\" box. The box now holds the goal text, and \"Let's begin\" is enabled. I didn't tap it.",
     "startPath": "/?demo",
     "endPath": "/?demo",
     "endAnchors": [
@@ -44,12 +44,9 @@
         "role": "textbox",
         "name": "What do you want to learn?",
         "placeholder": "Anything. A language, calculus, how engines work, reading sheet music…"
-      },
-      {
-        "text": "Drawing…"
       }
     ],
-    "endWaitMs": 13618,
+    "endWaitMs": 13270,
     "keyedBy": {
       "cacheSchema": "trace-1",
       "policyVersion": "conservative/6",

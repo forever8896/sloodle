@@ -1,9 +1,10 @@
 import { describe, test } from '@e2e-dev/web';
 import { expect } from 'e2e';
+import { openSettled } from '../support/settled';
 
 describe('lesson session', () => {
-  test('Sloo teaches in conversation and grades an exercise in the lesson', async ({ app, agent, screen }) => {
-    await app.open('/?demo');
+  test('Sloo teaches in conversation and grades an exercise in the lesson', async ({ app, agent, screen, browser }) => {
+    await openSettled({ app, screen, browser }, '/?demo');
     const session = screen.getByRole('region', 'Session with Sloo');
     await expect(session.getByText(/^Welcome back\. Before anything new/)).toBeVisible();
     await expect(session.getByText(/^Correct, and you did it without the mnemonic/)).toBeVisible();
@@ -18,8 +19,8 @@ describe('lesson session', () => {
     await expect(exercise.getByRole('textbox', 'Blank 1 of 2')).toHaveValue('E');
   });
 
-  test('Sloo can read the lesson aloud', async ({ app, agent, screen }) => {
-    await app.open('/?demo');
+  test('Sloo can read the lesson aloud', async ({ app, agent, screen, browser }) => {
+    await openSettled({ app, screen, browser }, '/?demo');
     const session = screen.getByRole('region', 'Session with Sloo');
     await expect(session.getByRole('switch', 'Sloo reads aloud')).not.toBeChecked();
 

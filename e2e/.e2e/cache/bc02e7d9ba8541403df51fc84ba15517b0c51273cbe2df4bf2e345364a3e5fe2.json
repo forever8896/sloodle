@@ -1,6 +1,6 @@
 {
   "schemaVersion": "trace-1",
-  "createdAt": "2026-11-17T15:46:09.661Z",
+  "createdAt": "2026-11-17T16:22:16.339Z",
   "payload": {
     "actions": [
       {
@@ -25,48 +25,61 @@
       "callIndex": 0,
       "agent": "default"
     },
-    "summary": "Tapped the Mona Lisa enlarge button in the Picture section. A dialog titled \"A face that is hard to read\" opened with the enlarged image, caption and a Close button.",
+    "summary": "I tapped the Mona Lisa enlarge button in the Picture section. A dialog titled \"A face that is hard to read\" opened with the enlarged image, its description, the credit line and a Close button.",
     "startPath": "/?blocks",
     "endPath": "/?blocks",
     "endAnchors": [
-      {
-        "role": "status",
-        "name": "✓ Correct!",
-        "text": "Correct!"
-      },
-      {
-        "role": "status",
-        "name": "½ Partly there",
-        "text": "Partly there"
-      },
-      {
-        "role": "status",
-        "name": "↺ Not yet",
-        "text": "Not yet"
-      },
-      {
-        "role": "status",
-        "name": "All 3 steps shown."
-      },
-      {
-        "role": "status",
-        "name": "You rated it: Good"
-      },
-      {
-        "role": "log",
-        "name": "Output",
-        "text": "(no output)"
-      },
       {
         "role": "image",
         "name": "The Mona Lisa: a half-length portrait of a seated woman with folded hands and a faint smile, a winding landscape behind her."
       },
       {
-        "role": "heading",
+        "text": "The Mona Lisa: a half-length portrait of a seated woman with folded hands and a faint smile, a winding landscape behind her."
+      },
+      {
+        "role": "button",
+        "name": "Close"
+      },
+      {
+        "role": "dialog",
         "name": "A face that is hard to read"
       }
     ],
-    "endWaitMs": 13591,
+    "goneAnchors": [
+      {
+        "role": "heading",
+        "name": "Lesson components"
+      },
+      {
+        "role": "link",
+        "name": "Ordering"
+      },
+      {
+        "role": "link",
+        "name": "Matching"
+      },
+      {
+        "role": "link",
+        "name": "Fill in the blanks"
+      },
+      {
+        "role": "link",
+        "name": "Worked example"
+      },
+      {
+        "role": "link",
+        "name": "Flashcard"
+      },
+      {
+        "role": "link",
+        "name": "Diagram"
+      },
+      {
+        "role": "link",
+        "name": "Code"
+      }
+    ],
+    "endWaitMs": 13728,
     "keyedBy": {
       "cacheSchema": "trace-1",
       "policyVersion": "conservative/6",

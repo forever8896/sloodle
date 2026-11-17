@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "trace-1",
+  "createdAt": "2026-11-17T19:16:14.594Z",
+  "payload": {
+    "actions": [
+      {
+        "name": "tap",
+        "summary": "tap button \"Locked\" in \"Name\" (2 of 4)",
+        "target": {
+          "role": "button",
+          "name": "Locked",
+          "within": "Name",
+          "position": {
+            "index": 1,
+            "of": 4
+          }
+        }
+      }
+    ],
+    "executor": {
+      "name": "claude-code",
+      "version": "1"
+    },
+    "recordedFor": {
+      "testId": "tests/profile-and-settings.e2e.ts::you%20and%20Sloo::choosing%20a%20teaching%20dial%20yourself%20locks%20it%2C%20and%20it%20can%20be%20unlocked",
+      "targetId": "chromium",
+      "instructionDigest": "946bdbf3fcbdbb6d6fa7b1bff4c1aa1e3dbf9ef7c3d2836686a1c4d4a8d1e6fb",
+      "paramsDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "callIndex": 0,
+      "agent": "default"
+    },
+    "summary": "I unlocked Pace by tapping its \"Locked\" button. The button is no longer pressed, the \"Set by the learner.\" note is gone, and Recent changes lists \"pacing unlocked\". The brisk radio was already checked before this step, and I didn't re-check it afterwards.",
+    "startPath": "/?demo",
+    "endPath": "/?demo",
+    "endAnchors": [
+      {
+        "text": "pacing unlocked"
+      },
+      {
+        "role": "listitem",
+        "name": "pacing unlocked user, 11/17/2026: Changed by the learner."
+      }
+    ],
+    "goneAnchors": [
+      {
+        "role": "button",
+        "name": "Locked",
+        "states": [
+          "pressed"
+        ]
+      }
+    ],
+    "endWaitMs": 34489,
+    "keyedBy": {
+      "cacheSchema": "trace-1",
+      "policyVersion": "conservative/6",
+      "project": "01e48ba80b5211ad3b51c4c4e52ec1531faa923fe12f59b27e1b7f02b9e3c314",
+      "platform": "web",
+      "engineName": "web",
+      "engineSpiVersion": 1,
+      "appIdentity": "f9f49ed79c2662c7f6e0522da33af26cd0588919fce8b674530ba7c83e5d217c",
+      "agentContextDigest": "c074949dea83d1027d1c42747d8215653e6b2f8d2f11c4da09292e68be9609bf"
+    }
+  }
+}
