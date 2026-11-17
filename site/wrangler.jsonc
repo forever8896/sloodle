@@ -3,5 +3,6 @@
 {
   "name": "sloodle-site",
   "compatibility_date": "2026-11-01",
+  "routes": [{ "pattern": "sloodle.kilian.solutions", "custom_domain": true }],
   "assets": { "directory": "./dist", "not_found_handling": "404-page" }
 }

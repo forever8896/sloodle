@@ -10,6 +10,8 @@
 </p>
 
 <p align="center">
+  <a href="https://sloodle.kilian.solutions"><strong>sloodle.kilian.solutions</strong></a>
+  &nbsp;·&nbsp;
   <a href="LICENSE"><img src="https://img.shields.io/badge/licence-MIT-6f9c46" alt="MIT licence"></a>
 </p>
 
