@@ -180,6 +180,11 @@
   flex-direction: column;
   gap: var(--space-2);
 
+  /* Hidden until the first run; without this the display rule above wins over the attribute. */
+  &[hidden] {
+    display: none;
+  }
+
   & pre {
     max-height: 14rem;
     border-radius: var(--radius-tile);

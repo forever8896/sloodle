@@ -1,0 +1,7 @@
+// Only for deploying as a Cloudflare Worker with static assets (Workers Builds, root directory "site").
+// A Cloudflare Pages project does not read this file; see the build settings in the handover notes.
+{
+  "name": "sloodle-site",
+  "compatibility_date": "2026-11-01",
+  "assets": { "directory": "./dist", "not_found_handling": "404-page" }
+}

@@ -1,7 +1,7 @@
 import { isTauri } from "@tauri-apps/api/core";
 import { openUrl } from "@tauri-apps/plugin-opener";
 import { Dialog, DialogBackdrop, DialogClose, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@ui-sdk/react/dialog";
-import { useState, type MouseEvent } from "react";
+import { useRef, useState, type MouseEvent } from "react";
 import type { ImageCredit, ShownImage } from "../../api";
 import { Markdown } from "../Markdown";
 import { BlockHeader, type BlockProps } from "./parts";
@@ -49,6 +49,8 @@ function Missing({ image }: { image: ShownImage }) {
 function Picture({ image, title }: { image: ShownImage; title: string }) {
   const url = usePictureUrl(image.src);
   const [failed, setFailed] = useState(false);
+  // React's autoFocus sets no attribute the dialog can see, so name the Close button as the first focus explicitly.
+  const close = useRef<HTMLButtonElement>(null);
   if (url === null || failed) return <Missing image={image} />;
   if (url === undefined) return <div className="block-image-frame" aria-busy="true" />;
   return (
@@ -60,7 +62,7 @@ function Picture({ image, title }: { image: ShownImage; title: string }) {
         <span className="block-sr"> (enlarge)</span>
       </DialogTrigger>
       <DialogBackdrop />
-      <DialogContent className="block-image-dialog">
+      <DialogContent className="block-image-dialog" initialFocus={() => close.current}>
         <img src={url} alt={image.alt} />
         <div data-slot="stack">
           <DialogTitle>{image.caption ?? title}</DialogTitle>
@@ -72,7 +74,7 @@ function Picture({ image, title }: { image: ShownImage; title: string }) {
           )}
         </div>
         <div data-slot="row">
-          <DialogClose data-variant="solid" autoFocus>
+          <DialogClose data-variant="solid" ref={close}>
             Close
           </DialogClose>
         </div>

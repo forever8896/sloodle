@@ -17,10 +17,10 @@ type Screen = "home" | "course" | "lesson" | "review" | "chat";
 /** The rail's entry for the global chat; course ids are lowercase slugs, so it never collides with one. */
 const CHAT = "@chat";
 
-/** `screen` picks the opening screen; the demo gallery uses it to show every screen at once. */
-function App({ screen }: { screen?: Screen }) {
+/** `screen` picks the opening screen; the demo gallery uses it to show every screen at once. `course` opens that course instead. */
+function App({ screen, course: initialCourse }: { screen?: Screen; course?: string }) {
   const [courses, setCourses] = useState<CourseListing[]>();
-  const [selected, setSelectedState] = useState<string | undefined>(screen === undefined || screen === "home" ? undefined : screen === "chat" ? CHAT : "demo");
+  const [selected, setSelectedState] = useState<string | undefined>(initialCourse ?? (screen === undefined || screen === "home" ? undefined : screen === "chat" ? CHAT : "demo"));
   // A button in the chat can open a course straight into a lesson or review, or start a course with its goal typed in.
   const [courseMode, setCourseMode] = useState<"overview" | "lesson" | "review">();
   const [prefill, setPrefill] = useState<string>();
@@ -164,8 +164,13 @@ function Home({ auth, initialTopic, onCreated, onChat }: { auth?: AuthStatus; in
     event?.preventDefault();
     if (!topic.trim() || creating) return;
     setCreating(true);
-    rpc<Progress>("course.create", { topic }).then(
+    rpc<Progress | null>("course.create", { topic }).then(
       (course) => {
+        if (!course?.id) {
+          setError("The course wasn't created. Try again in a moment.");
+          setCreating(false);
+          return;
+        }
         sfx.play("courseCreated");
         onCreated(course);
       },
@@ -274,10 +279,10 @@ function DemoGallery() {
   );
 }
 
-/** ?demo&onboarding: the first-run welcome on sample data; finishing it shows the home screen. */
+/** ?demo&onboarding: the first-run welcome on sample data; finishing it shows the home screen, or the course it started. */
 function DemoOnboarding() {
-  const [done, setDone] = useState(false);
-  return done ? <App screen="home" /> : <Onboarding onDone={() => setDone(true)} />;
+  const [done, setDone] = useState<{ course?: string }>();
+  return done ? <App screen="home" course={done.course} /> : <Onboarding onDone={(course) => setDone({ course: course?.id })} />;
 }
 
 export { App, DemoGallery, DemoOnboarding };

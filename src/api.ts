@@ -70,6 +70,14 @@ function connect(): Promise<WebSocket> {
 /** With ?demo in the address (browser only), every screen renders from sample data and no engine is needed. */
 export const demo = !isTauri() && new URLSearchParams(location.search).has("demo");
 
+// Demo only: src/demo.ts announces a changed course list or profile with this window event, as the engine would push it.
+if (demo) {
+  addEventListener("sloodle-demo", (event) => {
+    const listeners = (event as CustomEvent<"courses" | "profile">).detail === "profile" ? profileListeners : courseListeners;
+    for (const listener of listeners) listener();
+  });
+}
+
 export async function rpc<T = unknown>(method: string, params?: unknown): Promise<T> {
   if (demo) return (await import("./demo")).demoRpc(method, params) as Promise<T>;
   const ws = await connect();

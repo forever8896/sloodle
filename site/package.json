@@ -1,0 +1,21 @@
+{
+  "name": "sloodle-site",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "The public landing page for Sloodle. A static Vite + React site that renders the app's real components from ../src with no engine.",
+  "scripts": {
+    "assets": "bash scripts/assets.sh",
+    "snippet": "bun scripts/snippet.ts",
+    "dev": "vite --port 1440 --strictPort",
+    "build": "vite build",
+    "preview": "vite preview --port 1441 --strictPort",
+    "typecheck": "tsc --noEmit -p .",
+    "verify": "node scripts/verify.mjs"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "6.3.0",
+    "puppeteer-core": "^24.0.0",
+    "vite": "8.3.8"
+  }
+}

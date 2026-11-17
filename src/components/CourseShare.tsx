@@ -38,7 +38,8 @@ function ImportCourseButton({ onImported }: { onImported: (course: Progress) => 
   async function importFile(file: File) {
     setError(undefined);
     try {
-      const course = await rpc<Progress>("course.import", { json: await file.text() });
+      const course = await rpc<Progress | null>("course.import", { json: await file.text() });
+      if (!course?.id) throw new Error("The course didn't open. Try again in a moment.");
       sfx.play("import");
       onImported(course);
     } catch (e) {

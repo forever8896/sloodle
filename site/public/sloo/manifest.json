@@ -1,0 +1,114 @@
+{
+  "version": 1,
+  "poster": "idle.webp",
+  "shadow": true,
+  "states": {
+    "idle": {
+      "clips": [
+        "idle"
+      ],
+      "play": "loop",
+      "poster": "idle.webp",
+      "rest": {
+        "after": 20,
+        "every": [
+          8,
+          15
+        ]
+      }
+    },
+    "listening": {
+      "clips": [
+        "listening"
+      ],
+      "play": "loop",
+      "poster": "listening.webp",
+      "rest": {
+        "after": 20,
+        "every": [
+          6,
+          12
+        ]
+      }
+    },
+    "thinking": {
+      "clips": [
+        "thinking"
+      ],
+      "play": "loop",
+      "poster": "thinking.webp",
+      "rest": {
+        "after": 30,
+        "every": [
+          6,
+          12
+        ]
+      }
+    },
+    "writing": {
+      "clips": [
+        "writing"
+      ],
+      "play": "loop",
+      "poster": "writing.webp"
+    },
+    "talking": {
+      "clips": [
+        "talking"
+      ],
+      "play": "loop",
+      "poster": "talking.webp"
+    },
+    "happy": {
+      "clips": [
+        "happy"
+      ],
+      "poster": "happy.webp",
+      "rest": {
+        "after": 0,
+        "every": [
+          5,
+          9
+        ]
+      }
+    },
+    "cheer": {
+      "clips": [
+        "cheer"
+      ],
+      "poster": "cheer.webp",
+      "rest": {
+        "after": 0,
+        "every": [
+          5,
+          9
+        ]
+      }
+    },
+    "wave": {
+      "clips": [
+        "wave"
+      ],
+      "poster": "wave.webp",
+      "rest": {
+        "after": 0,
+        "every": [
+          5,
+          9
+        ]
+      }
+    },
+    "correct": {
+      "clips": [
+        "happy"
+      ],
+      "poster": "happy.webp"
+    },
+    "encourage": {
+      "clips": [
+        "happy"
+      ],
+      "poster": "happy.webp"
+    }
+  }
+}

@@ -208,7 +208,7 @@ function CourseView({ courseId, onDeleted, initialMode = "overview" }: { courseI
             </dl>
           ) : (
             <p className="today-plan">
-              Sessions are about {course.brief?.minutesPerSession} minutes.
+              {course.brief ? `Sessions are about ${course.brief.minutesPerSession} minutes.` : "Sessions are short: start one whenever you're ready."}
               {course.brief?.studyCue ? ` Your plan: ${course.brief.studyCue}` : ""}
             </p>
           )}
