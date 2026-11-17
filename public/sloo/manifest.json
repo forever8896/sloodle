@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "poster": "hero.png",
+  "shadow": true,
+  "states": {
+    "idle": { "clips": ["idle"], "play": "loop", "rest": { "after": 20, "every": [8, 15] } },
+    "listening": { "clips": ["listening"], "play": "loop", "rest": { "after": 20, "every": [6, 12] } },
+    "thinking": { "clips": ["thinking"], "play": "loop", "rest": { "after": 30, "every": [6, 12] } },
+    "writing": { "clips": ["writing"], "play": "loop" },
+    "talking": { "clips": ["talking"], "play": "loop" },
+    "happy": { "clips": ["happy"], "rest": { "after": 0, "every": [5, 9] } },
+    "cheer": { "clips": ["cheer"], "rest": { "after": 0, "every": [5, 9] } },
+    "wave": { "clips": ["wave"], "rest": { "after": 0, "every": [5, 9] } }
+  }
+}

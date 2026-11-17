@@ -1,0 +1,65 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Rust and Tauri
+src-tauri/target
+src-tauri/gen/schemas
+
+# Packaged engine binaries
+src-tauri/binaries
+
+# Gondola design runs
+.gondola
+
+# Local secrets
+.env
+.env.*
+.npmrc
+
+# Speech models and other downloads (they live in the data folder, but never commit them by accident)
+*.onnx
+
+# ---------------------------------------------------------------- media working files
+# The repo keeps the app's delivery clips (public/sloo/), the hero stills (media/sloo/hero*.png), the ad stills
+# (media/ad/*.png) and the README media (docs/readme/, including a web encode of the ad).
+
+# Character design exploration: candidate stills and their prompts.
+media/sloo/candidates/
+# 1440px clip masters and their alpha mattes (about 115 MB). Inputs to scripts/sloo-pack.sh and
+# ad/scripts/extract-sloo.sh; they are AI-generated originals, so keep them backed up outside the repo.
+media/sloo/clips/
+media/sloo/mattes/
+# App screenshots for review; the README uses web-sized copies in docs/readme/.
+media/screens/
+# Full-quality ad renders (about 36 MB each). Re-render with `cd ad && pnpm render`
+# (add `--audio master-music --out ../media/ad/sloodle-ad-music-only.mp4` for the music-only cut).
+media/ad/*.mp4
+
+# The ad's working files: PNG frame sequences (`cd ad && pnpm frames`, needs the clip masters above),
+# the render scratch folder, and the mixed and mastered soundtrack (`cd ad && pnpm audio`).
+ad/public/sloo-frames/
+ad/.render/
+ad/audio/mix-*.wav
+ad/audio/master-*.wav

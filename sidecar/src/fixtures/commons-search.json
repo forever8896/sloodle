@@ -1,0 +1,274 @@
+{
+ "batchcomplete": true,
+ "query": {
+  "pages": [
+   {
+    "pageid": 37197827,
+    "ns": 6,
+    "title": "File:RWS Tarot 00 Fool.jpg",
+    "index": 2,
+    "imagerepository": "local",
+    "imageinfo": [
+     {
+      "size": 1177006,
+      "width": 1144,
+      "height": 1919,
+      "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/RWS_Tarot_00_Fool.jpg/960px-RWS_Tarot_00_Fool.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "thumbwidth": 960,
+      "thumbheight": 1610,
+      "responsiveUrls": {
+       "2": "https://upload.wikimedia.org/wikipedia/commons/9/90/RWS_Tarot_00_Fool.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+      },
+      "thumbattribs": {
+       "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/RWS_Tarot_00_Fool.jpg/960px-RWS_Tarot_00_Fool.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+       "decoding": "async",
+       "loading": "lazy",
+       "width": 960,
+       "height": 1610,
+       "srcset": "https://upload.wikimedia.org/wikipedia/commons/9/90/RWS_Tarot_00_Fool.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled 2x"
+      },
+      "url": "https://upload.wikimedia.org/wikipedia/commons/9/90/RWS_Tarot_00_Fool.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "descriptionurl": "https://commons.wikimedia.org/wiki/File:RWS_Tarot_00_Fool.jpg",
+      "descriptionshorturl": "https://commons.wikimedia.org/wiki/Special:Redirect/page/37197827",
+      "extmetadata": {
+       "ObjectName": {
+        "value": "RWS Tarot 00 Fool",
+        "source": "mediawiki-metadata"
+       },
+       "ImageDescription": {
+        "value": "The Fool—“Pam-A” tarot card from the <a href=\"https://en.wikipedia.org/wiki/en:Rider%E2%80%93Waite_Tarot\" class=\"extiw\" title=\"w:en:Rider–Waite Tarot\">Rider–Waite Tarot</a> deck.",
+        "source": "commons-desc-page"
+       },
+       "Credit": {
+        "value": "<a rel=\"nofollow\" class=\"external free\" href=\"http://muzendo.jp/blog/\">http://muzendo.jp/blog/</a>",
+        "source": "commons-desc-page"
+       },
+       "Artist": {
+        "value": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Pamela_Colman_Smith\" class=\"extiw\" title=\"w:en:Pamela Colman Smith\"><span title=\"British occultist, artist and illustrator (1878–1951)\">Pamela Colman Smith</span></a></bdi>",
+        "source": "commons-desc-page"
+       },
+       "LicenseShortName": {
+        "value": "Public domain",
+        "source": "commons-desc-page",
+        "hidden": ""
+       }
+      },
+      "mime": "image/jpeg"
+     }
+    ]
+   },
+   {
+    "pageid": 147414579,
+    "ns": 6,
+    "title": "File:RWS1909 - 00 Fool.jpeg",
+    "index": 3,
+    "imagerepository": "local",
+    "imageinfo": [
+     {
+      "size": 285790,
+      "width": 825,
+      "height": 1429,
+      "thumburl": "https://upload.wikimedia.org/wikipedia/commons/6/6e/RWS1909_-_00_Fool.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "thumbwidth": 960,
+      "thumbheight": 1663,
+      "thumbattribs": {
+       "src": "https://upload.wikimedia.org/wikipedia/commons/6/6e/RWS1909_-_00_Fool.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+       "decoding": "async",
+       "loading": "lazy",
+       "width": 960,
+       "height": 1663
+      },
+      "url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/RWS1909_-_00_Fool.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "descriptionurl": "https://commons.wikimedia.org/wiki/File:RWS1909_-_00_Fool.jpeg",
+      "descriptionshorturl": "https://commons.wikimedia.org/wiki/Special:Redirect/page/147414579",
+      "extmetadata": {
+       "ObjectName": {
+        "value": "RWS1909 - 00 Fool",
+        "source": "mediawiki-metadata"
+       },
+       "ImageDescription": {
+        "value": "Fool card from the <a href=\"https://en.wikipedia.org/wiki/en:Rider%E2%80%93Waite_Tarot\" class=\"extiw\" title=\"w:en:Rider–Waite Tarot\">Waite–Smith Tarot</a> deck. This card is from an original 1909 \"Roses &amp; Lilies\" deck scanned by Saskia Jansen from her personal collection.",
+        "source": "commons-desc-page"
+       },
+       "Credit": {
+        "value": "<a rel=\"nofollow\" class=\"external free\" href=\"https://blog.goo.ne.jp/valet_de_coupe/e/10b39ab41d023e6b44bb7d7b7209c772\">https://blog.goo.ne.jp/valet_de_coupe/e/10b39ab41d023e6b44bb7d7b7209c772</a>",
+        "source": "commons-desc-page"
+       },
+       "Artist": {
+        "value": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Pamela_Colman_Smith\" class=\"extiw\" title=\"w:en:Pamela Colman Smith\"><span title=\"British occultist, artist and illustrator (1878–1951)\">Pamela Colman Smith</span></a></bdi>",
+        "source": "commons-desc-page"
+       },
+       "LicenseShortName": {
+        "value": "Public domain",
+        "source": "commons-desc-page",
+        "hidden": ""
+       }
+      },
+      "mime": "image/jpeg"
+     }
+    ]
+   },
+   {
+    "pageid": 188730226,
+    "ns": 6,
+    "title": "File:The Fool (Rider-Waite Smith tarot deck).png",
+    "index": 1,
+    "imagerepository": "local",
+    "imageinfo": [
+     {
+      "size": 12652993,
+      "width": 2100,
+      "height": 3600,
+      "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/The_Fool_%28Rider-Waite_Smith_tarot_deck%29.png/960px-The_Fool_%28Rider-Waite_Smith_tarot_deck%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "thumbwidth": 960,
+      "thumbheight": 1646,
+      "responsiveUrls": {
+       "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/The_Fool_%28Rider-Waite_Smith_tarot_deck%29.png/1920px-The_Fool_%28Rider-Waite_Smith_tarot_deck%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      "thumbattribs": {
+       "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/The_Fool_%28Rider-Waite_Smith_tarot_deck%29.png/960px-The_Fool_%28Rider-Waite_Smith_tarot_deck%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+       "decoding": "async",
+       "loading": "lazy",
+       "width": 960,
+       "height": 1646,
+       "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/The_Fool_%28Rider-Waite_Smith_tarot_deck%29.png/1920px-The_Fool_%28Rider-Waite_Smith_tarot_deck%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+      },
+      "url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/The_Fool_%28Rider-Waite_Smith_tarot_deck%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "descriptionurl": "https://commons.wikimedia.org/wiki/File:The_Fool_(Rider-Waite_Smith_tarot_deck).png",
+      "descriptionshorturl": "https://commons.wikimedia.org/wiki/Special:Redirect/page/188730226",
+      "extmetadata": {
+       "ObjectName": {
+        "value": "The Fool (Rider-Waite Smith tarot deck)",
+        "source": "mediawiki-metadata"
+       },
+       "ImageDescription": {
+        "value": "Major Arcana 0 tarot card from the Rider–Waite Smith Tarot deck, extracted from scan and cleaned for digital use.",
+        "source": "commons-desc-page"
+       },
+       "Credit": {
+        "value": "Wikimedia Commons",
+        "source": "commons-desc-page"
+       },
+       "Artist": {
+        "value": "Pamela Colman Smith",
+        "source": "commons-desc-page"
+       },
+       "LicenseShortName": {
+        "value": "Public domain",
+        "source": "commons-desc-page",
+        "hidden": ""
+       }
+      },
+      "mime": "image/png"
+     }
+    ]
+   },
+   {
+    "pageid": 203199513,
+    "ns": 6,
+    "title": "File:00 Fool.png",
+    "index": 5,
+    "imagerepository": "local",
+    "imageinfo": [
+     {
+      "size": 506251,
+      "width": 804,
+      "height": 1363,
+      "thumburl": "https://upload.wikimedia.org/wikipedia/commons/2/22/00_Fool.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "thumbwidth": 960,
+      "thumbheight": 1627,
+      "thumbattribs": {
+       "src": "https://upload.wikimedia.org/wikipedia/commons/2/22/00_Fool.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+       "decoding": "async",
+       "loading": "lazy",
+       "width": 960,
+       "height": 1627
+      },
+      "url": "https://upload.wikimedia.org/wikipedia/commons/2/22/00_Fool.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "descriptionurl": "https://commons.wikimedia.org/wiki/File:00_Fool.png",
+      "descriptionshorturl": "https://commons.wikimedia.org/wiki/Special:Redirect/page/203199513",
+      "extmetadata": {
+       "ObjectName": {
+        "value": "00 Fool",
+        "source": "mediawiki-metadata"
+       },
+       "ImageDescription": {
+        "value": "Major Arcana",
+        "source": "commons-desc-page"
+       },
+       "Credit": {
+        "value": "Anonymous Google Drive Source",
+        "source": "commons-desc-page"
+       },
+       "Artist": {
+        "value": "Pamela Coleman Smith (1878-1951)",
+        "source": "commons-desc-page"
+       },
+       "LicenseShortName": {
+        "value": "Public domain",
+        "source": "commons-desc-page",
+        "hidden": ""
+       }
+      },
+      "mime": "image/png"
+     }
+    ]
+   },
+   {
+    "pageid": 203244799,
+    "ns": 6,
+    "title": "File:RWS Tarot 1910 - 00 The Fool.png",
+    "index": 4,
+    "imagerepository": "local",
+    "imageinfo": [
+     {
+      "size": 3870362,
+      "width": 1144,
+      "height": 1919,
+      "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/RWS_Tarot_1910_-_00_The_Fool.png/960px-RWS_Tarot_1910_-_00_The_Fool.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "thumbwidth": 960,
+      "thumbheight": 1610,
+      "responsiveUrls": {
+       "2": "https://upload.wikimedia.org/wikipedia/commons/f/fa/RWS_Tarot_1910_-_00_The_Fool.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+      },
+      "thumbattribs": {
+       "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/RWS_Tarot_1910_-_00_The_Fool.png/960px-RWS_Tarot_1910_-_00_The_Fool.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+       "decoding": "async",
+       "loading": "lazy",
+       "width": 960,
+       "height": 1610,
+       "srcset": "https://upload.wikimedia.org/wikipedia/commons/f/fa/RWS_Tarot_1910_-_00_The_Fool.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled 2x"
+      },
+      "url": "https://upload.wikimedia.org/wikipedia/commons/f/fa/RWS_Tarot_1910_-_00_The_Fool.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "descriptionurl": "https://commons.wikimedia.org/wiki/File:RWS_Tarot_1910_-_00_The_Fool.png",
+      "descriptionshorturl": "https://commons.wikimedia.org/wiki/Special:Redirect/page/203244799",
+      "extmetadata": {
+       "ObjectName": {
+        "value": "RWS Tarot 1910 - 00 The Fool",
+        "source": "mediawiki-metadata"
+       },
+       "ImageDescription": {
+        "value": "The Fool (0) from the 1910 Rider-Waite-Smith tarot deck ('Pamela-A' edition, published by William Rider &amp; Son, London). Illustrated by Pamela Colman Smith under the direction of Arthur Edward Waite.",
+        "source": "commons-desc-page"
+       },
+       "Credit": {
+        "value": "Scanned from 1910 Rider-Waite-Smith tarot deck ('Pamela-A').",
+        "source": "commons-desc-page"
+       },
+       "Artist": {
+        "value": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Pamela_Colman_Smith\" class=\"extiw\" title=\"w:en:Pamela Colman Smith\"><span title=\"British occultist, artist and illustrator (1878–1951)\">Pamela Colman Smith</span></a></bdi>",
+        "source": "commons-desc-page"
+       },
+       "LicenseShortName": {
+        "value": "Public domain",
+        "source": "commons-desc-page",
+        "hidden": ""
+       }
+      },
+      "mime": "image/png"
+     }
+    ]
+   }
+  ]
+ }
+}

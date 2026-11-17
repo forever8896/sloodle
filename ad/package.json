@@ -1,0 +1,19 @@
+{
+  "name": "sloodle-ad",
+  "private": true,
+  "version": "0.1.0",
+  "license": "MIT",
+  "type": "module",
+  "description": "The Sloodle motion-graphics ad: a deterministic React composition rendered frame by frame with headless Chromium and ffmpeg.",
+  "scripts": {
+    "dev": "vite --port 1431 --strictPort",
+    "frames": "bash scripts/extract-sloo.sh",
+    "audio": "node scripts/audio.mjs && node scripts/master.mjs audio/mix-voice.wav audio/master-voice.wav && node scripts/master.mjs audio/mix-music.wav audio/master-music.wav",
+    "render": "node scripts/render.mjs"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "6.3.0",
+    "puppeteer-core": "^24.0.0",
+    "vite": "8.3.8"
+  }
+}

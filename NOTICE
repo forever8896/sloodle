@@ -1,0 +1,13 @@
+sloodle
+Copyright (c) 2026 Sloodle contributors
+
+The source code in this repository is licensed under the MIT licence (see LICENSE).
+
+The name "Sloo", the Sloo character design, and the character art and animation
+(including the files in public/sloo/, media/, docs/readme/ and site/, and any
+copies of them elsewhere in this repository) are not covered by the MIT licence.
+You may use them to run, build, modify and talk about sloodle. You may not use
+them as the mascot, logo or branding of another product or service.
+
+Third-party fonts, libraries and sample pictures remain under their own licences,
+as credited in README.md.

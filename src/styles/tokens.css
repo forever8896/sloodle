@@ -1,0 +1,170 @@
+@layer ui-sdk;
+
+/*
+  sloodle's design tokens, defined once. Every colour is a light-dark() pair, so the Appearance setting (which sets
+  color-scheme on the root) switches the whole app. The light theme is a lavender morning; the dark theme is a lavender
+  night, chosen pair by pair rather than inverted. Green is Sloo's beret: it marks what you can press to go forward and
+  what has grown. The owl's cocoa, mustard and cream sit on every surface here.
+
+  Stable token names (other style files read these):
+    Surfaces   --canvas --rail-bg --surface --surface-raised --sunk --field --hairline --edge
+    Text       --text --muted --lavender (accent text, links)
+    Lavender   --lavender-soft (tint fill) --lavender-lip (lip under raised neutral things) --ring --ring-soft
+    Green      --green --green-top --green-lip --green-ink (text on green) --green-soft --green-text
+    Owl        --mustard --cocoa --cream
+    Meaning    --correct(-soft) --partial(-soft) --incorrect(-soft) --warning(-soft) --danger --danger-face/-lip/-ink
+    Growth     --soil --sloo-leaf --sloo --petal --sun
+    Sloo       --stage --stage-glow (the cushion behind the character)
+    Type       --font-display --font-text --font-mono, --text-xs/sm/md/lg/xl, --title-sm/md/lg/xl
+    Space      --space-1 … --space-12, --gutter
+    Shape      --radius-pill --radius-field --radius-tile --radius-card --radius-panel
+    Depth      --elev-1/2/3 --sheen --shadow-tint --lip
+    Motion     --dur-instant/quick/base/slow --ease-out --ease-squish --ease-soft
+  Reusable classes in base.css: .card .tile .chip .stage .notice[data-tone] .error, and every UI SDK control.
+*/
+
+:root {
+  /* Lavender atmosphere */
+  --canvas: light-dark(#f1ecfa, #17121f);
+  --rail-bg: light-dark(#e6ddf5, #1f182b);
+  --surface: light-dark(#fdfbff, #251d33);
+  --surface-raised: light-dark(#ffffff, #2e2540);
+  --sunk: light-dark(#e7dff4, #120e19);
+  --field: light-dark(#ffffff, #1b1526);
+  --hairline: light-dark(#ddd3ee, #362c48);
+  --edge: light-dark(#9286ae, #776a90);
+  --text: light-dark(#2b2142, #f2edfb);
+  --muted: light-dark(#635879, #b8adcc);
+  --lavender: light-dark(#5e43b4, #c3aef7);
+  --lavender-soft: light-dark(#e2d6fb, #3b2f57);
+  --lavender-lip: light-dark(#c9b8ee, #140f1d);
+  --ring: light-dark(#7a5cd6, #b9a2f5);
+  --ring-soft: light-dark(rgb(122 92 214 / 0.22), rgb(185 162 245 / 0.25));
+
+  /* Beret green: forward actions and growth */
+  --green: light-dark(#4f7f2d, #93c76a);
+  --green-top: light-dark(#5f9338, #a5d47d);
+  --green-lip: light-dark(#35591c, #5d8a3b);
+  --green-ink: light-dark(#ffffff, #132008);
+  --green-soft: light-dark(#e6f2da, #22311a);
+  --green-text: light-dark(#3b6e22, #a8dc84);
+
+  /* The owl's own colours, as accents */
+  --mustard: light-dark(#e2a73d, #e9b450);
+  --cocoa: light-dark(#6b3a2c, #6b3a2c);
+  --cream: light-dark(#f4e6cf, #f4e6cf);
+
+  /* Meaning */
+  --correct: var(--green-text);
+  --correct-soft: var(--green-soft);
+  --partial: light-dark(#8a5a0b, #f3c86a);
+  --partial-soft: light-dark(#fbefd3, #352914);
+  --incorrect: light-dark(#b02f4e, #f59ab0);
+  --incorrect-soft: light-dark(#fbe4ea, #3a1d27);
+  --warning: var(--partial);
+  --warning-soft: var(--partial-soft);
+  --danger: light-dark(#b42e4c, #f28aa3);
+  --danger-face: light-dark(#c23a5a, #e77f99);
+  --danger-lip: light-dark(#8a1f3a, #a64a62);
+  --danger-ink: light-dark(#ffffff, #2a0c15);
+
+  /* Seed to flower (read by Growth in components/Sloo.tsx) */
+  --soil: light-dark(#8a6248, #b08b6f);
+  --sloo-leaf: light-dark(#5f9338, #8cc264);
+  --sloo: light-dark(#7cae4e, #a7d880);
+  --petal: light-dark(#a98be8, #c7b2f6);
+  --sun: var(--mustard);
+
+  /*
+    Where Sloo stands: the soft cushion behind the character on Home, the course opening, empty states and the
+    welcome. Read these if the character's matte or ground shadow needs to match.
+  */
+  --stage: light-dark(#ddd0f6, #3b2e58);
+  --stage-glow: light-dark(#f3edff, #5a4885);
+
+  /* Older names still read by the character's audition page and SoundAudition.css */
+  --bg: var(--canvas);
+  --accent: var(--green);
+  --accent-ink: var(--green-ink);
+  --accent2: var(--mustard);
+
+  /* Type */
+  --font-display: "Fredoka Variable", "Fredoka", ui-rounded, "Nunito Variable", system-ui, sans-serif;
+  --font-text: "Nunito Variable", "Nunito", ui-rounded, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-md: 1.0625rem;
+  --text-lg: 1.25rem;
+  --text-xl: clamp(1.375rem, 1.9vw, 1.625rem);
+  --title-sm: 1.375rem;
+  --title-md: clamp(1.75rem, 2.6vw, 2.25rem);
+  --title-lg: clamp(2.25rem, 4vw, 3.25rem);
+  --title-xl: clamp(2.5rem, 5vw, 4.25rem);
+
+  /* Space (a 4px base) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --gutter: clamp(1.25rem, 3.5vw, 3.5rem);
+
+  /* Shape: controls are pills, fields and tiles are soft squares, panels are pillows */
+  --radius-pill: 999px;
+  --radius-field: 1.125rem;
+  --radius-tile: 1.375rem;
+  --radius-card: 1.75rem;
+  --radius-panel: 2.25rem;
+
+  /* Elevation, tinted with the canvas hue (never pure black on light) */
+  --shadow-tint: light-dark(rgb(64 40 120 / 0.16), rgb(0 0 0 / 0.5));
+  --elev-1: 0 1px 2px light-dark(rgb(64 40 120 / 0.08), rgb(0 0 0 / 0.35)), 0 6px 16px -10px var(--shadow-tint);
+  --elev-2: 0 2px 4px light-dark(rgb(64 40 120 / 0.06), rgb(0 0 0 / 0.3)), 0 18px 36px -20px var(--shadow-tint);
+  --elev-3: 0 4px 10px light-dark(rgb(64 40 120 / 0.08), rgb(0 0 0 / 0.35)), 0 32px 64px -28px light-dark(rgb(64 40 120 / 0.35), rgb(0 0 0 / 0.7));
+  --sheen: inset 0 2px 0 light-dark(rgb(255 255 255 / 0.9), rgb(255 255 255 / 0.06));
+  --lip: 4px;
+
+  /* Motion */
+  --dur-instant: 90ms;
+  --dur-quick: 160ms;
+  --dur-base: 260ms;
+  --dur-slow: 480ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-squish: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-soft: cubic-bezier(0.45, 0, 0.25, 1);
+
+  /* UI SDK's web.css, themed through its own tokens */
+  --ui-background: var(--field);
+  --ui-foreground: var(--text);
+  --ui-muted: var(--sunk);
+  --ui-muted-foreground: var(--muted);
+  --ui-border: var(--hairline);
+  --ui-input: var(--edge);
+  --ui-primary: var(--green);
+  --ui-primary-foreground: var(--green-ink);
+  --ui-destructive: var(--danger);
+  --ui-ring: var(--ring);
+  --ui-ring-border: var(--ring);
+  --ui-overlay: light-dark(rgb(226 214 251 / 0.62), rgb(10 7 16 / 0.7));
+  --ui-shadow: var(--elev-3);
+  --ui-radius: var(--radius-field);
+  --ui-font-size: var(--text-md);
+  --ui-line-height: 1.5;
+  --ui-font-sans: var(--font-text);
+  --ui-font-mono: var(--font-mono);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-quick: 1ms;
+    --dur-base: 1ms;
+    --dur-slow: 1ms;
+    --ease-squish: linear;
+  }
+}

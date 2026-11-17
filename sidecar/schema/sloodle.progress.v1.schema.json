@@ -1,0 +1,327 @@
+{
+  "title": "sloodle.progress.v1",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "format": {
+      "type": "string",
+      "const": "sloodle.progress"
+    },
+    "version": {
+      "type": "number",
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{0,63}$",
+      "description": "The course id; the course content is course.json in the same folder."
+    },
+    "topic": {
+      "type": "string",
+      "description": "What the learner typed when they started."
+    },
+    "createdAt": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string",
+      "enum": [
+        "interview",
+        "planning",
+        "ready"
+      ]
+    },
+    "origin": {
+      "default": {
+        "kind": "generated",
+        "at": "1970-01-01T00:00:00.000Z"
+      },
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "generated",
+            "imported",
+            "migrated"
+          ]
+        },
+        "importedTitle": {
+          "type": "string"
+        },
+        "importedId": {
+          "type": "string"
+        },
+        "at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "at"
+      ]
+    },
+    "brief": {
+      "type": "object",
+      "properties": {
+        "topic": {
+          "type": "string"
+        },
+        "targetPerformance": {
+          "type": "string"
+        },
+        "motivation": {
+          "type": "string"
+        },
+        "useContext": {
+          "type": "string"
+        },
+        "deadline": {
+          "type": "string"
+        },
+        "minutesPerSession": {
+          "type": "number"
+        },
+        "sessionsPerWeek": {
+          "type": "number"
+        },
+        "studyCue": {
+          "type": "string"
+        },
+        "priorKnowledge": {
+          "type": "string"
+        },
+        "priorAttempts": {
+          "type": "string"
+        },
+        "formatPreferences": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "constraints": {
+          "type": "string"
+        },
+        "diagnosticFindings": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "topic",
+        "targetPerformance",
+        "motivation",
+        "useContext",
+        "minutesPerSession",
+        "sessionsPerWeek",
+        "priorKnowledge"
+      ]
+    },
+    "objectiveStates": {
+      "default": {},
+      "type": "object",
+      "propertyNames": {
+        "type": "string"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "new",
+              "learning",
+              "practiced",
+              "mastered"
+            ]
+          },
+          "evidence": {
+            "default": [],
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "at": {
+                  "type": "string"
+                },
+                "score": {
+                  "type": "number"
+                },
+                "hintsUsed": {
+                  "type": "number"
+                },
+                "kind": {
+                  "type": "string"
+                },
+                "confidence": {
+                  "type": "number"
+                },
+                "note": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "at",
+                "score",
+                "hintsUsed",
+                "kind"
+              ]
+            }
+          },
+          "firstSuccessDay": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      }
+    },
+    "summaries": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "at": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "interview",
+              "planning",
+              "lesson"
+            ]
+          },
+          "summary": {
+            "type": "string"
+          },
+          "nextStep": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "at",
+          "kind",
+          "summary",
+          "nextStep"
+        ]
+      }
+    },
+    "projects": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "moduleId": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "brief": {
+            "type": "string"
+          },
+          "deliverables": {
+            "default": [],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "assignedAt": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "assigned",
+              "submitted",
+              "reviewed"
+            ]
+          },
+          "feedback": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "brief",
+          "assignedAt",
+          "status"
+        ]
+      }
+    },
+    "reviewCards": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "objectiveId": {
+            "type": "string"
+          },
+          "front": {
+            "type": "string"
+          },
+          "back": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "card": {
+            "type": "object",
+            "propertyNames": {
+              "type": "string"
+            },
+            "additionalProperties": {}
+          }
+        },
+        "required": [
+          "id",
+          "front",
+          "back",
+          "createdAt",
+          "card"
+        ]
+      }
+    },
+    "sdkSessions": {
+      "default": {},
+      "type": "object",
+      "propertyNames": {
+        "type": "string"
+      },
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "activeLesson": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "format",
+    "version",
+    "id",
+    "topic",
+    "createdAt",
+    "phase"
+  ],
+  "additionalProperties": {}
+}

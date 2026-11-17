@@ -1,0 +1,739 @@
+{
+  "title": "sloodle.learner.v1",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "format": {
+      "type": "string",
+      "const": "sloodle.learner"
+    },
+    "version": {
+      "type": "number",
+      "const": 1
+    },
+    "updatedAt": {
+      "type": "string"
+    },
+    "stated": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "about": {
+          "type": "string",
+          "maxLength": 2000
+        },
+        "preferences": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string",
+                "maxLength": 2000
+              },
+              "at": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string",
+                "enum": [
+                  "user",
+                  "interview",
+                  "tutor",
+                  "reflection",
+                  "migration"
+                ],
+                "description": "Who wrote it: the person, the interview, the tutor during a lesson, the end-of-session reflection, or migration."
+              },
+              "courseId": {
+                "description": "Set when it only applies to one course.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "text",
+              "at",
+              "source"
+            ]
+          }
+        },
+        "goals": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string",
+                "maxLength": 2000
+              },
+              "at": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string",
+                "enum": [
+                  "user",
+                  "interview",
+                  "tutor",
+                  "reflection",
+                  "migration"
+                ],
+                "description": "Who wrote it: the person, the interview, the tutor during a lesson, the end-of-session reflection, or migration."
+              },
+              "courseId": {
+                "description": "Set when it only applies to one course.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "text",
+              "at",
+              "source"
+            ]
+          }
+        },
+        "interests": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string",
+                "maxLength": 2000
+              },
+              "at": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string",
+                "enum": [
+                  "user",
+                  "interview",
+                  "tutor",
+                  "reflection",
+                  "migration"
+                ],
+                "description": "Who wrote it: the person, the interview, the tutor during a lesson, the end-of-session reflection, or migration."
+              },
+              "courseId": {
+                "description": "Set when it only applies to one course.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "text",
+              "at",
+              "source"
+            ]
+          }
+        }
+      }
+    },
+    "notes": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "at": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string",
+            "enum": [
+              "user",
+              "interview",
+              "tutor",
+              "reflection",
+              "migration"
+            ],
+            "description": "Who wrote it: the person, the interview, the tutor during a lesson, the end-of-session reflection, or migration."
+          },
+          "courseId": {
+            "description": "Set when it only applies to one course.",
+            "type": "string"
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "preference",
+              "misconception",
+              "strength",
+              "struggle",
+              "context",
+              "motivation"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "text",
+          "at",
+          "source",
+          "category"
+        ]
+      }
+    },
+    "observed": {
+      "description": "Derived by code from events.jsonl. Read only; dismiss findings instead of editing them.",
+      "type": "object",
+      "properties": {
+        "derivedAt": {
+          "type": "string"
+        },
+        "eventCount": {
+          "type": "number"
+        },
+        "answers": {
+          "type": "object",
+          "properties": {
+            "all": {
+              "type": "object",
+              "properties": {
+                "n": {
+                  "type": "number"
+                },
+                "accuracy": {
+                  "type": "number",
+                  "description": "Share of answers scoring 0.8 or more."
+                },
+                "meanScore": {
+                  "type": "number"
+                },
+                "hintRate": {
+                  "type": "number",
+                  "description": "Share of answers given after taking a hint."
+                },
+                "evidence": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Ids of the most recent events behind this number."
+                }
+              },
+              "required": [
+                "n",
+                "accuracy",
+                "meanScore",
+                "hintRate",
+                "evidence"
+              ],
+              "description": "Graded answers: everything except self-rated flashcards and worked-example predictions."
+            },
+            "byKind": {
+              "type": "object",
+              "propertyNames": {
+                "type": "string",
+                "enum": [
+                  "choice",
+                  "short",
+                  "explain",
+                  "numeric",
+                  "ordering",
+                  "matching",
+                  "blanks",
+                  "prediction",
+                  "flashcard"
+                ]
+              },
+              "additionalProperties": {
+                "type": "object",
+                "properties": {
+                  "n": {
+                    "type": "number"
+                  },
+                  "accuracy": {
+                    "type": "number",
+                    "description": "Share of answers scoring 0.8 or more."
+                  },
+                  "meanScore": {
+                    "type": "number"
+                  },
+                  "hintRate": {
+                    "type": "number",
+                    "description": "Share of answers given after taking a hint."
+                  },
+                  "evidence": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Ids of the most recent events behind this number."
+                  }
+                },
+                "required": [
+                  "n",
+                  "accuracy",
+                  "meanScore",
+                  "hintRate",
+                  "evidence"
+                ]
+              }
+            }
+          },
+          "required": [
+            "all",
+            "byKind"
+          ]
+        },
+        "recent": {
+          "type": "object",
+          "properties": {
+            "n": {
+              "type": "number"
+            },
+            "accuracy": {
+              "type": "number",
+              "description": "Share of answers scoring 0.8 or more."
+            },
+            "meanScore": {
+              "type": "number"
+            },
+            "hintRate": {
+              "type": "number",
+              "description": "Share of answers given after taking a hint."
+            },
+            "evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Ids of the most recent events behind this number."
+            }
+          },
+          "required": [
+            "n",
+            "accuracy",
+            "meanScore",
+            "hintRate",
+            "evidence"
+          ],
+          "description": "The last 20 answers."
+        },
+        "calibration": {
+          "type": "object",
+          "properties": {
+            "verdict": {
+              "type": "string",
+              "enum": [
+                "unknown",
+                "calibrated",
+                "overconfident",
+                "underconfident"
+              ]
+            },
+            "gap": {
+              "description": "Mean stated confidence minus accuracy, over answers with a rating.",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "byConfidence": {
+              "type": "object",
+              "propertyNames": {
+                "type": "string",
+                "enum": [
+                  "guessing",
+                  "fairlySure",
+                  "certain"
+                ]
+              },
+              "additionalProperties": {
+                "type": "object",
+                "properties": {
+                  "n": {
+                    "type": "number"
+                  },
+                  "accuracy": {
+                    "type": "number",
+                    "description": "Share of answers scoring 0.8 or more."
+                  },
+                  "meanScore": {
+                    "type": "number"
+                  },
+                  "hintRate": {
+                    "type": "number",
+                    "description": "Share of answers given after taking a hint."
+                  },
+                  "evidence": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Ids of the most recent events behind this number."
+                  }
+                },
+                "required": [
+                  "n",
+                  "accuracy",
+                  "meanScore",
+                  "hintRate",
+                  "evidence"
+                ]
+              }
+            },
+            "evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "verdict",
+            "gap",
+            "byConfidence",
+            "evidence"
+          ]
+        },
+        "pace": {
+          "type": "object",
+          "properties": {
+            "medianSecondsToAnswer": {
+              "type": "object",
+              "propertyNames": {
+                "type": "string",
+                "enum": [
+                  "choice",
+                  "short",
+                  "explain",
+                  "numeric",
+                  "ordering",
+                  "matching",
+                  "blanks",
+                  "prediction",
+                  "flashcard"
+                ]
+              },
+              "additionalProperties": {
+                "type": "number"
+              }
+            }
+          },
+          "required": [
+            "medianSecondsToAnswer"
+          ]
+        },
+        "sessions": {
+          "type": "object",
+          "properties": {
+            "n": {
+              "type": "number"
+            },
+            "medianMinutes": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "perWeek": {
+              "type": "number",
+              "description": "Lessons per week over the last four weeks."
+            },
+            "lastAt": {
+              "type": "string"
+            },
+            "accuracyByTimeOfDay": {
+              "type": "object",
+              "propertyNames": {
+                "type": "string",
+                "enum": [
+                  "morning",
+                  "afternoon",
+                  "evening",
+                  "night"
+                ]
+              },
+              "additionalProperties": {
+                "type": "object",
+                "properties": {
+                  "n": {
+                    "type": "number"
+                  },
+                  "accuracy": {
+                    "type": "number",
+                    "description": "Share of answers scoring 0.8 or more."
+                  },
+                  "meanScore": {
+                    "type": "number"
+                  },
+                  "hintRate": {
+                    "type": "number",
+                    "description": "Share of answers given after taking a hint."
+                  },
+                  "evidence": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Ids of the most recent events behind this number."
+                  }
+                },
+                "required": [
+                  "n",
+                  "accuracy",
+                  "meanScore",
+                  "hintRate",
+                  "evidence"
+                ]
+              }
+            },
+            "evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "n",
+            "medianMinutes",
+            "perWeek",
+            "accuracyByTimeOfDay",
+            "evidence"
+          ]
+        },
+        "presentation": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "enum": [
+              "activate",
+              "explain",
+              "example",
+              "analogy",
+              "visual",
+              "practice",
+              "recall",
+              "reflect",
+              "project",
+              "summary"
+            ]
+          },
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "n": {
+                "type": "number"
+              },
+              "accuracy": {
+                "type": "number",
+                "description": "Share of answers scoring 0.8 or more."
+              },
+              "meanScore": {
+                "type": "number"
+              },
+              "hintRate": {
+                "type": "number",
+                "description": "Share of answers given after taking a hint."
+              },
+              "evidence": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Ids of the most recent events behind this number."
+              }
+            },
+            "required": [
+              "n",
+              "accuracy",
+              "meanScore",
+              "hintRate",
+              "evidence"
+            ]
+          },
+          "description": "Answers that followed material of each intent."
+        },
+        "baseline": {
+          "type": "object",
+          "properties": {
+            "n": {
+              "type": "number"
+            },
+            "accuracy": {
+              "type": "number",
+              "description": "Share of answers scoring 0.8 or more."
+            },
+            "meanScore": {
+              "type": "number"
+            },
+            "hintRate": {
+              "type": "number",
+              "description": "Share of answers given after taking a hint."
+            },
+            "evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Ids of the most recent events behind this number."
+            }
+          },
+          "required": [
+            "n",
+            "accuracy",
+            "meanScore",
+            "hintRate",
+            "evidence"
+          ],
+          "description": "Answers that followed no shown material."
+        },
+        "misconceptions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "courseId": {
+                "type": "string"
+              },
+              "count": {
+                "type": "number"
+              },
+              "lastAt": {
+                "type": "string"
+              },
+              "evidence": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "key",
+              "id",
+              "label",
+              "courseId",
+              "count",
+              "lastAt",
+              "evidence"
+            ]
+          }
+        },
+        "reviews": {
+          "type": "object",
+          "properties": {
+            "n": {
+              "type": "number"
+            },
+            "againRate": {
+              "type": "number"
+            },
+            "evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "n",
+            "againRate",
+            "evidence"
+          ]
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string",
+                "description": "Stable key; the person can dismiss a finding by key."
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "strength",
+                  "struggle",
+                  "pattern"
+                ]
+              },
+              "text": {
+                "type": "string"
+              },
+              "evidence": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "key",
+              "kind",
+              "text",
+              "evidence"
+            ]
+          }
+        }
+      },
+      "required": [
+        "derivedAt",
+        "eventCount",
+        "answers",
+        "recent",
+        "calibration",
+        "pace",
+        "sessions",
+        "presentation",
+        "baseline",
+        "misconceptions",
+        "reviews",
+        "findings"
+      ]
+    },
+    "dismissed": {
+      "default": [],
+      "description": "Keys of observed findings and misconceptions the person marked as wrong.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "format",
+    "version",
+    "updatedAt"
+  ],
+  "additionalProperties": {}
+}

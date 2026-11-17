@@ -1,0 +1,484 @@
+{
+  "title": "sloodle.sloo.v1",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "format": {
+      "type": "string",
+      "const": "sloodle.sloo"
+    },
+    "version": {
+      "type": "number",
+      "const": 1
+    },
+    "updatedAt": {
+      "type": "string"
+    },
+    "persona": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "name": {
+          "default": "Sloo",
+          "type": "string",
+          "maxLength": 60
+        },
+        "voice": {
+          "default": "A small, friendly sprout and a personal tutor. Talks the way a good tutor talks: short turns, one idea at a time.",
+          "type": "string",
+          "maxLength": 2000
+        },
+        "tone": {
+          "default": "Warm, plain and direct. Lightly playful, never childish. No unearned praise.",
+          "type": "string",
+          "maxLength": 2000
+        }
+      }
+    },
+    "memory": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "toldMe": {
+          "default": [],
+          "description": "Things the learner told Sloo about themselves.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string",
+                "maxLength": 2000
+              },
+              "at": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string",
+                "enum": [
+                  "user",
+                  "interview",
+                  "tutor",
+                  "reflection",
+                  "migration"
+                ],
+                "description": "Who wrote it: the person, the interview, the tutor during a lesson, the end-of-session reflection, or migration."
+              },
+              "courseId": {
+                "description": "Set when it only applies to one course.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "text",
+              "at",
+              "source"
+            ]
+          }
+        },
+        "workingToward": {
+          "default": [],
+          "description": "What the learner is working toward, beyond a single course.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string",
+                "maxLength": 2000
+              },
+              "at": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string",
+                "enum": [
+                  "user",
+                  "interview",
+                  "tutor",
+                  "reflection",
+                  "migration"
+                ],
+                "description": "Who wrote it: the person, the interview, the tutor during a lesson, the end-of-session reflection, or migration."
+              },
+              "courseId": {
+                "description": "Set when it only applies to one course.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "text",
+              "at",
+              "source"
+            ]
+          }
+        },
+        "episodes": {
+          "default": [],
+          "description": "Moments worth recalling: a breakthrough, a joke, a hard day.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string",
+                "maxLength": 2000
+              },
+              "at": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string",
+                "enum": [
+                  "user",
+                  "interview",
+                  "tutor",
+                  "reflection",
+                  "migration"
+                ],
+                "description": "Who wrote it: the person, the interview, the tutor during a lesson, the end-of-session reflection, or migration."
+              },
+              "courseId": {
+                "description": "Set when it only applies to one course.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "text",
+              "at",
+              "source"
+            ]
+          }
+        }
+      }
+    },
+    "approach": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "explanationDepth": {
+          "default": {
+            "value": "standard"
+          },
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string",
+              "enum": [
+                "brief",
+                "standard",
+                "thorough"
+              ]
+            },
+            "setBy": {
+              "default": "default",
+              "type": "string",
+              "enum": [
+                "default",
+                "stats",
+                "reflection",
+                "user"
+              ]
+            },
+            "reason": {
+              "default": "",
+              "type": "string"
+            },
+            "at": {
+              "type": "string"
+            },
+            "evidence": {
+              "default": [],
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "locked": {
+              "default": false,
+              "description": "Set by the person: automatic updates leave it alone.",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "value"
+          ]
+        },
+        "pacing": {
+          "default": {
+            "value": "steady"
+          },
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string",
+              "enum": [
+                "slower",
+                "steady",
+                "brisk"
+              ]
+            },
+            "setBy": {
+              "default": "default",
+              "type": "string",
+              "enum": [
+                "default",
+                "stats",
+                "reflection",
+                "user"
+              ]
+            },
+            "reason": {
+              "default": "",
+              "type": "string"
+            },
+            "at": {
+              "type": "string"
+            },
+            "evidence": {
+              "default": [],
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "locked": {
+              "default": false,
+              "description": "Set by the person: automatic updates leave it alone.",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "value"
+          ]
+        },
+        "challenge": {
+          "default": {
+            "value": "balanced"
+          },
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string",
+              "enum": [
+                "gentle",
+                "balanced",
+                "stretching"
+              ]
+            },
+            "setBy": {
+              "default": "default",
+              "type": "string",
+              "enum": [
+                "default",
+                "stats",
+                "reflection",
+                "user"
+              ]
+            },
+            "reason": {
+              "default": "",
+              "type": "string"
+            },
+            "at": {
+              "type": "string"
+            },
+            "evidence": {
+              "default": [],
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "locked": {
+              "default": false,
+              "description": "Set by the person: automatic updates leave it alone.",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "value"
+          ]
+        },
+        "hintGenerosity": {
+          "default": {
+            "value": "standard"
+          },
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string",
+              "enum": [
+                "sparing",
+                "standard",
+                "generous"
+              ]
+            },
+            "setBy": {
+              "default": "default",
+              "type": "string",
+              "enum": [
+                "default",
+                "stats",
+                "reflection",
+                "user"
+              ]
+            },
+            "reason": {
+              "default": "",
+              "type": "string"
+            },
+            "at": {
+              "type": "string"
+            },
+            "evidence": {
+              "default": [],
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "locked": {
+              "default": false,
+              "description": "Set by the person: automatic updates leave it alone.",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "value"
+          ]
+        },
+        "tactics": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string",
+                "maxLength": 2000
+              },
+              "intent": {
+                "type": "string",
+                "enum": [
+                  "activate",
+                  "explain",
+                  "example",
+                  "analogy",
+                  "visual",
+                  "practice",
+                  "recall",
+                  "reflect",
+                  "project",
+                  "summary"
+                ]
+              },
+              "source": {
+                "type": "string",
+                "enum": [
+                  "stats",
+                  "reflection",
+                  "user"
+                ]
+              },
+              "worked": {
+                "default": 0,
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "failed": {
+                "default": 0,
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "note": {
+                "type": "string",
+                "maxLength": 2000
+              },
+              "evidence": {
+                "default": [],
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "updatedAt": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "text",
+              "source",
+              "updatedAt"
+            ]
+          }
+        }
+      }
+    },
+    "log": {
+      "default": [],
+      "description": "Every automatic change, newest last, bounded.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "at": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string",
+            "enum": [
+              "stats",
+              "reflection",
+              "user",
+              "migration"
+            ]
+          },
+          "change": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "evidence": {
+            "default": [],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "at",
+          "source",
+          "change",
+          "reason"
+        ]
+      }
+    }
+  },
+  "required": [
+    "format",
+    "version",
+    "updatedAt"
+  ],
+  "additionalProperties": {}
+}

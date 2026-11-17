@@ -1,0 +1,592 @@
+/* The character's own styles: Sloo's stage, moods and the ?sloo audition page. Owned with the character; the app's
+   tokens are in styles/tokens.css and the screens in styles/app.css. */
+
+/* Sloo: the stage (drawn owl, still, or clips) and the drawn owl's moods. Colours follow the approved plush design. */
+
+.sloo {
+  --owl-body: #6b3a2c;
+  --owl-wing: #5d3125;
+  --owl-seam: rgb(36 16 10 / 0.5);
+  --owl-mask: #e2a73d;
+  --owl-ring: #c47f1c;
+  --owl-ink: #170c08;
+  --owl-beak: #f4e4cd;
+  --owl-cream: #f1e2c8;
+  --owl-cream-shade: #d6bf9c;
+  --owl-speckle: #94643f;
+  --owl-beret: #6f9c46;
+  --owl-beret-shade: #557f35;
+  --owl-paper: #fffaf0;
+  --owl-paper-edge: #d4c2a2;
+  --owl-pencil: #e8b100;
+  --owl-cheek: #e98c8c;
+  --sloo-level: 0;
+  flex: none;
+  display: grid;
+  grid-template: 100% / 100%;
+  width: var(--sloo-size, 6rem);
+  aspect-ratio: 120 / 132;
+}
+
+.sloo > * {
+  grid-area: 1 / 1;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+
+.sloo-shadow {
+  fill: light-dark(oklch(0.32 0.05 50 / 0.2), oklch(0 0 0 / 0.38));
+}
+
+.sloo-figure,
+.sloo-ground {
+  overflow: visible;
+}
+
+/* Breathing and other slow motion read variables that ticker.ts writes at 12 frames a second. */
+.sloo-figure,
+.sloo-poster {
+  transform-origin: 50% 96%;
+  scale: calc(1 + var(--sloo-breath, 0) * 0.012) calc(1 + var(--sloo-breath, 0) * 0.02);
+}
+
+.sloo-poster {
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+}
+
+.sloo-clips {
+  position: relative;
+  transform-origin: 50% 96%;
+}
+
+.sloo-clip,
+.sloo-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* Feeds for the canvas: WebKitGTK only advances a video that is in the page and not hidden. */
+.sloo-clip-feed {
+  position: fixed;
+  inset: 0 auto auto 0;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sloo[data-ready] .sloo-poster {
+  visibility: hidden;
+}
+
+/* Following the voice: the clips and the still bounce a little with loudness. */
+.sloo[data-voiced] .sloo-clips,
+.sloo[data-voiced][data-kind="still"] .sloo-poster {
+  animation: none;
+  scale: calc(1 + var(--sloo-level) * 0.03) calc(1 + var(--sloo-level) * 0.05);
+  translate: 0 calc(var(--sloo-level) * -1.5%);
+  transition:
+    scale 70ms linear,
+    translate 70ms linear;
+}
+
+/* The still: moods and reactions as whole-body motion. */
+.sloo[data-kind="still"] .sloo-poster {
+  transition: rotate 0.45s cubic-bezier(0.3, 1.3, 0.5, 1);
+}
+
+.sloo[data-kind="still"][data-mood="listening"] .sloo-poster {
+  rotate: -4deg;
+}
+
+.sloo[data-kind="still"][data-mood="thinking"] .sloo-poster {
+  rotate: calc(3deg + var(--sloo-sway, 0) * 1.5deg);
+  transition: none;
+}
+
+.sloo[data-kind="still"][data-mood="writing"] .sloo-poster {
+  rotate: calc(2deg + var(--sloo-flick, 0) * 0.8deg);
+  transition: none;
+}
+
+.sloo[data-kind="still"][data-mood="talking"]:not([data-voiced]) .sloo-poster {
+  animation: sloo-bob 0.46s ease-in-out infinite alternate;
+}
+
+/* Gestures: moods that can stay on screen a long time move in bursts (data-gesture, set from Sloo.tsx). */
+.sloo[data-kind="still"][data-mood="happy"][data-gesture] .sloo-poster,
+.sloo[data-kind="still"][data-mood="cheer"][data-gesture] .sloo-poster {
+  animation: sloo-hop 1.05s cubic-bezier(0.3, 0, 0.4, 1) 2;
+}
+
+.sloo[data-kind="still"][data-mood="wave"][data-gesture] .sloo-poster {
+  animation: sloo-sway 0.7s ease-in-out 3;
+}
+
+.sloo[data-kind="still"][data-reaction="correct"] .sloo-poster {
+  animation: sloo-hop 0.9s cubic-bezier(0.3, 0, 0.4, 1) 1;
+}
+
+.sloo[data-kind="still"][data-reaction="encourage"] .sloo-poster {
+  animation: sloo-nod 0.8s ease-in-out 2;
+}
+
+/* The drawn owl */
+
+.sloo-torso {
+  fill: var(--owl-body);
+}
+
+.sloo-wing {
+  fill: var(--owl-wing);
+}
+
+.sloo-pose,
+.sloo-wing,
+.sloo-beret,
+.sloo-eye,
+.sloo-eye-size,
+.sloo-beak-gap,
+.sloo-pencil {
+  transform-box: fill-box;
+}
+
+.sloo-pose {
+  transform-origin: 50% 100%;
+  transition:
+    rotate 0.45s cubic-bezier(0.3, 1.3, 0.5, 1),
+    translate 0.3s ease;
+}
+
+.sloo-wing {
+  transform-origin: 50% 8%;
+  transition: rotate 0.4s cubic-bezier(0.3, 1.4, 0.5, 1);
+}
+
+.sloo-beret {
+  transform-origin: 50% 100%;
+  transition: rotate 0.4s cubic-bezier(0.3, 1.4, 0.5, 1);
+}
+
+.sloo-eye-size {
+  transform-origin: center;
+  transition: scale 0.25s ease;
+}
+
+.sloo-eye {
+  transform-origin: center;
+  transition: scale 70ms ease-out;
+}
+
+.sloo-figure[data-blink] .sloo-eye {
+  scale: 1 0.1;
+}
+
+.sloo-pupil {
+  translate: calc(var(--sloo-look-x, 0) * 1.5px) calc(var(--sloo-look-y, 0) * 1.4px);
+  transition: translate 0.22s ease-out;
+}
+
+.sloo-beak-gap {
+  transform-origin: 50% 0;
+  scale: 1 0;
+}
+
+.sloo-beak-gap,
+.sloo-beak-lower {
+  transition:
+    scale 60ms linear,
+    translate 60ms linear;
+}
+
+.sloo-extra,
+.sloo-notepad {
+  display: none;
+}
+
+.sloo[data-mood="listening"] .sloo-pose {
+  rotate: -5deg;
+}
+
+.sloo[data-mood="listening"] .sloo-eye-size {
+  scale: 1.1;
+}
+
+.sloo[data-mood="listening"] .sloo-beret {
+  rotate: -6deg;
+}
+
+.sloo[data-mood="listening"] .sloo-ears {
+  display: inline;
+  opacity: calc(0.6 + var(--sloo-flick, 0) * 0.4);
+}
+
+.sloo[data-mood="thinking"] .sloo-pose {
+  rotate: 3deg;
+}
+
+.sloo[data-mood="thinking"] .sloo-pupil {
+  translate: -1.3px -1.6px;
+}
+
+.sloo[data-mood="thinking"] .sloo-wing-left {
+  rotate: -128deg;
+}
+
+.sloo[data-mood="thinking"] .sloo-beret {
+  rotate: -9deg;
+}
+
+.sloo[data-mood="thinking"] .sloo-thought {
+  display: inline;
+}
+
+.sloo[data-mood="thinking"] .sloo-thought circle:nth-child(1) {
+  opacity: calc(0.6 + var(--sloo-sway, 0) * 0.4);
+}
+
+.sloo[data-mood="thinking"] .sloo-thought circle:nth-child(2) {
+  opacity: calc(0.6 + var(--sloo-sway2, 0) * 0.4);
+}
+
+.sloo[data-mood="thinking"] .sloo-thought circle:nth-child(3) {
+  opacity: calc(0.6 - var(--sloo-sway, 0) * 0.4);
+}
+
+.sloo[data-mood="writing"] .sloo-notepad {
+  display: inline;
+}
+
+.sloo[data-mood="writing"] .sloo-pupil {
+  translate: 0.4px 1.7px;
+}
+
+.sloo[data-mood="writing"] .sloo-wing-right {
+  rotate: 40deg;
+}
+
+.sloo[data-mood="writing"] .sloo-beret {
+  rotate: 4deg;
+}
+
+.sloo[data-mood="writing"] .sloo-pencil {
+  translate: calc(var(--sloo-flick, 0) * 2.4px - 1.6px) calc(var(--sloo-flick2, 0) * 1.3px + 2.2px);
+}
+
+.sloo[data-mood="writing"] .sloo-scribble {
+  stroke-dasharray: 1 1;
+  stroke-dashoffset: calc(0.5 - var(--sloo-sway, 0) * 0.5);
+}
+
+.sloo[data-mood="talking"][data-voiced] .sloo-beak-gap {
+  scale: 1 calc(var(--sloo-level) * 1.1);
+}
+
+.sloo[data-mood="talking"][data-voiced] .sloo-beak-lower {
+  translate: 0 calc(var(--sloo-level) * 3.4px);
+}
+
+.sloo[data-mood="talking"][data-voiced] .sloo-pose {
+  translate: 0 calc(var(--sloo-level) * -1.2px);
+  transition: translate 70ms linear;
+}
+
+.sloo[data-mood="talking"]:not([data-voiced]) .sloo-beak-gap {
+  animation: sloo-chatter-gap 0.84s ease-in-out infinite;
+}
+
+.sloo[data-mood="talking"]:not([data-voiced]) .sloo-beak-lower {
+  animation: sloo-chatter-beak 0.84s ease-in-out infinite;
+}
+
+.sloo[data-mood="talking"] .sloo-beret {
+  rotate: 3deg;
+}
+
+.sloo[data-mood="happy"] .sloo-wing-left {
+  rotate: 42deg;
+}
+
+.sloo[data-mood="happy"] .sloo-wing-right {
+  rotate: -42deg;
+}
+
+.sloo[data-mood="cheer"] .sloo-wing-left {
+  rotate: 150deg;
+}
+
+.sloo[data-mood="cheer"] .sloo-wing-right {
+  rotate: -150deg;
+}
+
+.sloo[data-mood="cheer"] .sloo-eye-size {
+  scale: 1.08;
+}
+
+.sloo[data-mood="happy"][data-gesture] .sloo-pose,
+.sloo[data-mood="cheer"][data-gesture] .sloo-pose {
+  animation: sloo-hop 1.05s cubic-bezier(0.3, 0, 0.4, 1) 2;
+}
+
+.sloo[data-mood="happy"] .sloo-sparkles,
+.sloo[data-mood="cheer"] .sloo-sparkles,
+.sloo[data-reaction="correct"] .sloo-sparkles {
+  display: inline;
+}
+
+.sloo[data-gesture] .sloo-sparkles,
+.sloo[data-reaction="correct"] .sloo-sparkles {
+  animation: sloo-twinkle 0.7s ease-in-out 3;
+}
+
+.sloo[data-mood="wave"] .sloo-wing-right {
+  rotate: -140deg;
+}
+
+.sloo[data-mood="wave"][data-gesture] .sloo-wing-right {
+  animation: sloo-wave 0.35s ease-in-out 6 alternate;
+}
+
+.sloo[data-mood="wave"] .sloo-beret {
+  rotate: 5deg;
+}
+
+.sloo[data-reaction="correct"] .sloo-pose {
+  animation: sloo-hop 0.9s cubic-bezier(0.3, 0, 0.4, 1) 1;
+}
+
+.sloo[data-reaction="correct"] .sloo-wing-left {
+  rotate: 150deg;
+}
+
+.sloo[data-reaction="correct"] .sloo-wing-right {
+  rotate: -150deg;
+}
+
+.sloo[data-reaction="encourage"] .sloo-pose {
+  animation: sloo-nod 0.8s ease-in-out 2;
+}
+
+.sloo[data-reaction="encourage"] .sloo-wing-right {
+  rotate: -60deg;
+}
+
+.sloo[data-reaction="encourage"] .sloo-heart {
+  display: inline;
+  animation: sloo-rise 1.7s ease-out 1 both;
+}
+
+.sloo[data-paused],
+.sloo[data-paused] * {
+  animation-play-state: paused !important;
+}
+
+@keyframes sloo-bob {
+  to {
+    translate: 0 -1.2%;
+  }
+}
+
+@keyframes sloo-nod {
+  50% {
+    rotate: 3deg;
+    translate: 0 1%;
+  }
+}
+
+@keyframes sloo-sway {
+  0%,
+  100% {
+    rotate: -3deg;
+  }
+  50% {
+    rotate: 3deg;
+  }
+}
+
+@keyframes sloo-hop {
+  0%,
+  45%,
+  100% {
+    translate: 0 0;
+    scale: 1;
+  }
+  10% {
+    translate: 0 0;
+    scale: 1.04 0.95;
+  }
+  25% {
+    translate: 0 -9%;
+    scale: 0.97 1.04;
+  }
+}
+
+@keyframes sloo-wave {
+  from {
+    rotate: -122deg;
+  }
+  to {
+    rotate: -158deg;
+  }
+}
+
+@keyframes sloo-twinkle {
+  50% {
+    opacity: 0.45;
+  }
+}
+
+@keyframes sloo-rise {
+  0% {
+    opacity: 0;
+    translate: 0 4px;
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    translate: 0 -10px;
+  }
+}
+
+@keyframes sloo-chatter-gap {
+  0%,
+  100% {
+    scale: 1 0.1;
+  }
+  20% {
+    scale: 1 0.8;
+  }
+  45% {
+    scale: 1 0.3;
+  }
+  65% {
+    scale: 1 0.9;
+  }
+  85% {
+    scale: 1 0.2;
+  }
+}
+
+@keyframes sloo-chatter-beak {
+  0%,
+  100% {
+    translate: 0 0.3px;
+  }
+  20% {
+    translate: 0 2.6px;
+  }
+  45% {
+    translate: 0 1px;
+  }
+  65% {
+    translate: 0 2.9px;
+  }
+  85% {
+    translate: 0 0.6px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sloo,
+  .sloo * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* The Sloo audition page (?sloo, development only) */
+
+.sloo-audition {
+  max-width: 72rem;
+}
+
+.sloo-audition [data-slot="row"] {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+}
+
+.sloo-audition [data-slot="segmented-control"] {
+  flex-wrap: wrap;
+}
+
+.sloo-audition-status {
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+
+.sloo-audition-field {
+  width: 100%;
+  max-width: 36rem;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--edge);
+  border-radius: 1rem;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+}
+
+.sloo-audition-stages {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 1rem;
+  margin-block: 2rem;
+}
+
+.sloo-audition-stages figure,
+.sloo-audition-sizes figure {
+  display: grid;
+  justify-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 1.5rem 1rem 1rem;
+  border-radius: 1.25rem;
+}
+
+.sloo-audition-bg {
+  background: var(--bg);
+  outline: 1px solid var(--hairline);
+}
+
+.sloo-audition-surface {
+  background: var(--surface);
+}
+
+.sloo-audition-sun .sloo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  padding: 11% 6% 5%;
+  background: var(--sun);
+  border-radius: 50%;
+}
+
+.sloo-audition-check {
+  background: repeating-conic-gradient(light-dark(#d9d9d9, #2b2b2b) 0 25%, light-dark(#ffffff, #3a3a3a) 0 50%) 0 0 / 1.25rem 1.25rem;
+}
+
+.sloo-audition-stages .sloo {
+  width: min(13.75rem, 100%);
+}
+
+.sloo-audition-sizes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 1rem;
+}
+
+.sloo-audition-sizes figure {
+  background: var(--surface);
+}

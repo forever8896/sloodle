@@ -1,0 +1,227 @@
+/* The global chat with Sloo (ChatView) and the course-change card it shows (ProposalCard). */
+
+.chat-header {
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: var(--space-3);
+  padding-bottom: var(--space-1);
+
+  & .chat-new[data-slot] {
+    flex: none;
+  }
+}
+
+.chat-error {
+  margin: 0 var(--gutter);
+}
+
+/* The read-aloud switch sits under the header here, not over it. */
+.chat .session > .read-aloud[data-slot] {
+  top: var(--space-2);
+}
+
+.chat .transcript {
+  padding-top: var(--space-12);
+}
+
+.chat-empty {
+  display: flex;
+
+  & .bubble {
+    font-size: var(--text-md);
+  }
+}
+
+.home-chat {
+  margin-top: var(--space-3);
+  padding-top: 0;
+  border-top: none;
+}
+
+.rail-chat[data-slot] .rail-title {
+  color: var(--lavender);
+}
+
+/* A proposed course change */
+
+.proposal {
+  border: 2px solid var(--lavender-soft);
+
+  &[data-status="pending"] {
+    border-color: color-mix(in oklab, var(--lavender-soft), var(--ring) 40%);
+  }
+
+  &:not([data-status="pending"], [data-status="accepted"]) {
+    opacity: 0.85;
+  }
+
+  & .eyebrow {
+    margin-bottom: var(--space-1);
+  }
+}
+
+.proposal-reason {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+
+.proposal-lines {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding-left: 1.25rem;
+  line-height: 1.45;
+
+  & li::marker {
+    color: var(--lavender);
+  }
+}
+
+.proposal-compare {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.proposal-side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-width: 0;
+  padding: var(--space-4);
+  border-radius: var(--radius-tile);
+  background: var(--sunk);
+
+  & > h4 {
+    color: var(--muted);
+  }
+}
+
+.proposal-module {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+
+  &[data-mark="removed"] .proposal-module-title {
+    text-decoration: line-through;
+    color: var(--muted);
+  }
+
+  & ol {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  & li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-2);
+    padding: 0.375rem var(--space-2);
+    border-radius: var(--radius-field);
+    font-size: var(--text-sm);
+    line-height: 1.35;
+
+    & > :first-child {
+      flex: none;
+      margin-top: 0.0625rem;
+    }
+
+    & .chip {
+      flex: none;
+      margin-left: auto;
+    }
+  }
+
+  & li[data-mark="added"] {
+    background: var(--correct-soft);
+  }
+
+  & li[data-mark="changed"] {
+    background: var(--partial-soft);
+  }
+
+  & li[data-mark="removed"] {
+    background: var(--incorrect-soft);
+
+    & .proposal-lesson {
+      text-decoration: line-through;
+      text-decoration-thickness: 1.5px;
+    }
+  }
+}
+
+.proposal-module-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.proposal-lesson {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.proposal-unchanged {
+  font-family: var(--font-text);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.proposal-plans {
+  font-size: var(--text-sm);
+}
+
+.proposal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.proposal-status {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--muted);
+
+  &[data-status="accepted"] {
+    color: var(--correct);
+  }
+}
+
+/* A button Sloo offers */
+
+.chat-offer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  padding-left: 3.25rem;
+
+  & .muted {
+    font-size: var(--text-sm);
+  }
+}
+
+@media (max-width: 760px) {
+  .proposal-compare {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .chat-offer {
+    padding-left: 0;
+  }
+
+  .chat .transcript {
+    padding-top: var(--space-10);
+  }
+}

@@ -1,0 +1,1239 @@
+{
+  "title": "sloodle.course.v1",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "format": {
+      "type": "string",
+      "const": "sloodle.course"
+    },
+    "version": {
+      "type": "number",
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "subject": {
+      "type": "string",
+      "maxLength": 200,
+      "description": "The subject in a few words."
+    },
+    "summary": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "audience": {
+      "type": "string",
+      "maxLength": 2000,
+      "description": "Who it is written for: starting level and kind of goal. No personal details."
+    },
+    "language": {
+      "default": "en",
+      "description": "BCP 47 language tag of the content.",
+      "type": "string",
+      "maxLength": 35
+    },
+    "estimatedHours": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "maximum": 10000
+    },
+    "tags": {
+      "default": [],
+      "maxItems": 20,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 60
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "maxLength": 40
+    },
+    "modules": {
+      "minItems": 1,
+      "maxItems": 40,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "why": {
+            "type": "string",
+            "maxLength": 2000,
+            "description": "One sentence on why this module matters for the course goal."
+          },
+          "objectives": {
+            "minItems": 1,
+            "maxItems": 40,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+                },
+                "statement": {
+                  "type": "string",
+                  "maxLength": 2000,
+                  "description": "An observable performance: \"can ... given ...\"."
+                },
+                "level": {
+                  "type": "string",
+                  "enum": [
+                    "remember",
+                    "understand",
+                    "apply",
+                    "analyze",
+                    "evaluate",
+                    "create"
+                  ]
+                },
+                "prerequisites": {
+                  "default": [],
+                  "maxItems": 20,
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+                  }
+                },
+                "lesson": {
+                  "default": {},
+                  "type": "object",
+                  "properties": {
+                    "keyIdeas": {
+                      "default": [],
+                      "description": "The few ideas the learner must leave with.",
+                      "maxItems": 12,
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "maxLength": 2000
+                      }
+                    },
+                    "misconceptions": {
+                      "default": [],
+                      "maxItems": 12,
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+                          },
+                          "belief": {
+                            "type": "string",
+                            "maxLength": 2000,
+                            "description": "The wrong idea, stated as a learner would believe it."
+                          },
+                          "correction": {
+                            "type": "string",
+                            "maxLength": 2000,
+                            "description": "What is actually true, and why the wrong idea is tempting."
+                          },
+                          "sign": {
+                            "description": "How it shows up in an answer.",
+                            "type": "string",
+                            "maxLength": 2000
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "belief",
+                          "correction"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "blocks": {
+                      "default": [],
+                      "description": "The script, in teaching order. The tutor adapts delivery to the learner.",
+                      "maxItems": 40,
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+                              },
+                              "intent": {
+                                "type": "string",
+                                "enum": [
+                                  "activate",
+                                  "explain",
+                                  "example",
+                                  "analogy",
+                                  "visual",
+                                  "practice",
+                                  "recall",
+                                  "reflect",
+                                  "project",
+                                  "summary"
+                                ]
+                              },
+                              "title": {
+                                "type": "string",
+                                "maxLength": 200
+                              },
+                              "type": {
+                                "description": "Optional: a block without a type is Markdown.",
+                                "type": "string",
+                                "const": "markdown"
+                              },
+                              "body": {
+                                "type": "string",
+                                "maxLength": 12000,
+                                "description": "Markdown. For practice and recall blocks, the framing around the check."
+                              },
+                              "checkId": {
+                                "description": "For practice and recall: the check this block puts to the learner.",
+                                "type": "string",
+                                "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "intent",
+                              "body"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+                              },
+                              "intent": {
+                                "type": "string",
+                                "enum": [
+                                  "activate",
+                                  "explain",
+                                  "example",
+                                  "analogy",
+                                  "visual",
+                                  "practice",
+                                  "recall",
+                                  "reflect",
+                                  "project",
+                                  "summary"
+                                ]
+                              },
+                              "title": {
+                                "type": "string",
+                                "maxLength": 200
+                              },
+                              "type": {
+                                "type": "string",
+                                "const": "diagram"
+                              },
+                              "kind": {
+                                "type": "string",
+                                "enum": [
+                                  "flowchart",
+                                  "sequence",
+                                  "concept"
+                                ],
+                                "description": "flowchart = steps and decisions; sequence = messages between actors over time; concept = ideas and how they relate."
+                              },
+                              "source": {
+                                "type": "string",
+                                "maxLength": 4000,
+                                "description": "Mermaid source: `flowchart TD` / `flowchart LR` for flowchart and concept maps, `sequenceDiagram` for sequence. Plain labels only: no HTML, no click handlers, no styling directives."
+                              },
+                              "description": {
+                                "type": "string",
+                                "maxLength": 2000,
+                                "description": "What the diagram shows, in plain sentences. Read by screen readers, and shown instead of the diagram if it cannot be drawn."
+                              },
+                              "caption": {
+                                "type": "string",
+                                "maxLength": 200
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "intent",
+                              "type",
+                              "kind",
+                              "source",
+                              "description"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+                              },
+                              "intent": {
+                                "type": "string",
+                                "enum": [
+                                  "activate",
+                                  "explain",
+                                  "example",
+                                  "analogy",
+                                  "visual",
+                                  "practice",
+                                  "recall",
+                                  "reflect",
+                                  "project",
+                                  "summary"
+                                ]
+                              },
+                              "title": {
+                                "type": "string",
+                                "maxLength": 200
+                              },
+                              "type": {
+                                "type": "string",
+                                "const": "code"
+                              },
+                              "language": {
+                                "type": "string",
+                                "enum": [
+                                  "javascript",
+                                  "typescript",
+                                  "python",
+                                  "html",
+                                  "css",
+                                  "json",
+                                  "bash",
+                                  "sql",
+                                  "java",
+                                  "c",
+                                  "cpp",
+                                  "csharp",
+                                  "go",
+                                  "rust",
+                                  "ruby",
+                                  "php",
+                                  "kotlin",
+                                  "swift",
+                                  "plaintext"
+                                ]
+                              },
+                              "code": {
+                                "type": "string",
+                                "maxLength": 6000,
+                                "description": "The code, as it should appear. Under about 40 lines."
+                              },
+                              "caption": {
+                                "description": "One or two sentences on what to notice.",
+                                "type": "string",
+                                "maxLength": 2000
+                              },
+                              "runnable": {
+                                "default": false,
+                                "description": "JavaScript only: the learner may press Run to see its console output, in a sandbox with no network and a time limit.",
+                                "type": "boolean"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "intent",
+                              "type",
+                              "language",
+                              "code"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+                              },
+                              "intent": {
+                                "type": "string",
+                                "enum": [
+                                  "activate",
+                                  "explain",
+                                  "example",
+                                  "analogy",
+                                  "visual",
+                                  "practice",
+                                  "recall",
+                                  "reflect",
+                                  "project",
+                                  "summary"
+                                ]
+                              },
+                              "title": {
+                                "type": "string",
+                                "maxLength": 200
+                              },
+                              "type": {
+                                "type": "string",
+                                "const": "ordering"
+                              },
+                              "prompt": {
+                                "type": "string",
+                                "maxLength": 2000,
+                                "description": "Markdown: what to put in order, and by what (time, size, the steps of a procedure)."
+                              },
+                              "items": {
+                                "minItems": 3,
+                                "maxItems": 8,
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "maxLength": 300,
+                                  "pattern": "^[^\\n]*$"
+                                },
+                                "description": "The items IN THE CORRECT ORDER. The learner sees them shuffled."
+                              },
+                              "explanation": {
+                                "description": "Why this is the order. Shown with the result.",
+                                "type": "string",
+                                "maxLength": 2000
+                              },
+                              "hints": {
+                                "default": [],
+                                "description": "Up to three hints from gentle to pointed. A hint guides thinking and never states the answer.",
+                                "maxItems": 3,
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "maxLength": 2000
+                                }
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "intent",
+                              "type",
+                              "prompt",
+                              "items"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+                              },
+                              "intent": {
+                                "type": "string",
+                                "enum": [
+                                  "activate",
+                                  "explain",
+                                  "example",
+                                  "analogy",
+                                  "visual",
+                                  "practice",
+                                  "recall",
+                                  "reflect",
+                                  "project",
+                                  "summary"
+                                ]
+                              },
+                              "title": {
+                                "type": "string",
+                                "maxLength": 200
+                              },
+                              "type": {
+                                "type": "string",
+                                "const": "matching"
+                              },
+                              "prompt": {
+                                "type": "string",
+                                "maxLength": 2000,
+                                "description": "Markdown: what to match with what."
+                              },
+                              "pairs": {
+                                "minItems": 2,
+                                "maxItems": 8,
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "left": {
+                                      "type": "string",
+                                      "maxLength": 300,
+                                      "pattern": "^[^\\n]*$"
+                                    },
+                                    "right": {
+                                      "type": "string",
+                                      "maxLength": 300,
+                                      "pattern": "^[^\\n]*$"
+                                    }
+                                  },
+                                  "required": [
+                                    "left",
+                                    "right"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "description": "The correct pairs. The learner sees the right-hand items shuffled."
+                              },
+                              "distractors": {
+                                "default": [],
+                                "description": "Extra right-hand items that match nothing.",
+                                "maxItems": 3,
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "maxLength": 300,
+                                  "pattern": "^[^\\n]*$"
+                                }
+                              },
+                              "hints": {
+                                "default": [],
+                                "description": "Up to three hints from gentle to pointed. A hint guides thinking and never states the answer.",
+                                "maxItems": 3,
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "maxLength": 2000
+                                }
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "intent",
+                              "type",
+                              "prompt",
+                              "pairs"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+                              },
+                              "intent": {
+                                "type": "string",
+                                "enum": [
+                                  "activate",
+                                  "explain",
+                                  "example",
+                                  "analogy",
+                                  "visual",
+                                  "practice",
+                                  "recall",
+                                  "reflect",
+                                  "project",
+                                  "summary"
+                                ]
+                              },
+                              "title": {
+                                "type": "string",
+                                "maxLength": 200
+                              },
+                              "type": {
+                                "type": "string",
+                                "const": "blanks"
+                              },
+                              "prompt": {
+                                "description": "Markdown shown above the text.",
+                                "type": "string",
+                                "maxLength": 2000
+                              },
+                              "mode": {
+                                "default": "prose",
+                                "description": "code shows the text in a monospace font and compares answers case-sensitively.",
+                                "type": "string",
+                                "enum": [
+                                  "prose",
+                                  "code"
+                                ]
+                              },
+                              "text": {
+                                "type": "string",
+                                "maxLength": 2000,
+                                "description": "The sentence or code with each gap written as {{1}}, {{2}} and so on, in order."
+                              },
+                              "blanks": {
+                                "minItems": 1,
+                                "maxItems": 8,
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "accept": {
+                                      "minItems": 1,
+                                      "maxItems": 8,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string",
+                                        "maxLength": 200,
+                                        "pattern": "^[^\\n]*$"
+                                      },
+                                      "description": "Every answer that counts as right. The first is the one shown after answering."
+                                    },
+                                    "caseSensitive": {
+                                      "description": "Defaults to false in prose and true in code.",
+                                      "type": "boolean"
+                                    }
+                                  },
+                                  "required": [
+                                    "accept"
+                                  ],
+                                  "additionalProperties": false
+                                }
+                              },
+                              "hints": {
+                                "default": [],
+                                "description": "Up to three hints from gentle to pointed. A hint guides thinking and never states the answer.",
+                                "maxItems": 3,
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "maxLength": 2000
+                                }
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "intent",
+                              "type",
+                              "text",
+                              "blanks"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+                              },
+                              "intent": {
+                                "type": "string",
+                                "enum": [
+                                  "activate",
+                                  "explain",
+                                  "example",
+                                  "analogy",
+                                  "visual",
+                                  "practice",
+                                  "recall",
+                                  "reflect",
+                                  "project",
+                                  "summary"
+                                ]
+                              },
+                              "title": {
+                                "type": "string",
+                                "maxLength": 200
+                              },
+                              "type": {
+                                "type": "string",
+                                "const": "steps"
+                              },
+                              "prompt": {
+                                "type": "string",
+                                "maxLength": 2000,
+                                "description": "Markdown: the problem the worked example solves."
+                              },
+                              "steps": {
+                                "minItems": 2,
+                                "maxItems": 10,
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "text": {
+                                      "type": "string",
+                                      "maxLength": 2000,
+                                      "description": "Markdown: this step of the solution and why it is taken."
+                                    },
+                                    "predict": {
+                                      "description": "A question the learner answers before this step is revealed, such as 'What would you do next?'. Graded against the step's text.",
+                                      "type": "string",
+                                      "maxLength": 2000
+                                    }
+                                  },
+                                  "required": [
+                                    "text"
+                                  ],
+                                  "additionalProperties": false
+                                }
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "intent",
+                              "type",
+                              "prompt",
+                              "steps"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+                              },
+                              "intent": {
+                                "type": "string",
+                                "enum": [
+                                  "activate",
+                                  "explain",
+                                  "example",
+                                  "analogy",
+                                  "visual",
+                                  "practice",
+                                  "recall",
+                                  "reflect",
+                                  "project",
+                                  "summary"
+                                ]
+                              },
+                              "title": {
+                                "type": "string",
+                                "maxLength": 200
+                              },
+                              "type": {
+                                "type": "string",
+                                "const": "flashcard"
+                              },
+                              "front": {
+                                "type": "string",
+                                "maxLength": 2000,
+                                "description": "Markdown: a question that forces recall."
+                              },
+                              "back": {
+                                "type": "string",
+                                "maxLength": 2000,
+                                "description": "Markdown: the short answer."
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "intent",
+                              "type",
+                              "front",
+                              "back"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+                              },
+                              "intent": {
+                                "type": "string",
+                                "enum": [
+                                  "activate",
+                                  "explain",
+                                  "example",
+                                  "analogy",
+                                  "visual",
+                                  "practice",
+                                  "recall",
+                                  "reflect",
+                                  "project",
+                                  "summary"
+                                ]
+                              },
+                              "title": {
+                                "type": "string",
+                                "maxLength": 200
+                              },
+                              "type": {
+                                "type": "string",
+                                "const": "table"
+                              },
+                              "caption": {
+                                "type": "string",
+                                "maxLength": 200
+                              },
+                              "columns": {
+                                "minItems": 2,
+                                "maxItems": 5,
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "maxLength": 120,
+                                  "pattern": "^[^\\n]*$"
+                                },
+                                "description": "Column headings. The first heads the row labels."
+                              },
+                              "rows": {
+                                "minItems": 1,
+                                "maxItems": 12,
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "label": {
+                                      "type": "string",
+                                      "maxLength": 200,
+                                      "pattern": "^[^\\n]*$"
+                                    },
+                                    "cells": {
+                                      "minItems": 1,
+                                      "maxItems": 4,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string",
+                                        "maxLength": 400,
+                                        "pattern": "^[^\\n]*$"
+                                      }
+                                    }
+                                  },
+                                  "required": [
+                                    "label",
+                                    "cells"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "description": "One per thing compared; cells follow the columns after the first."
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "intent",
+                              "type",
+                              "columns",
+                              "rows"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+                              },
+                              "intent": {
+                                "type": "string",
+                                "enum": [
+                                  "activate",
+                                  "explain",
+                                  "example",
+                                  "analogy",
+                                  "visual",
+                                  "practice",
+                                  "recall",
+                                  "reflect",
+                                  "project",
+                                  "summary"
+                                ]
+                              },
+                              "title": {
+                                "type": "string",
+                                "maxLength": 200
+                              },
+                              "type": {
+                                "type": "string",
+                                "const": "callout"
+                              },
+                              "tone": {
+                                "type": "string",
+                                "enum": [
+                                  "tip",
+                                  "warning",
+                                  "key-idea",
+                                  "common-mistake"
+                                ],
+                                "description": "tip = a useful shortcut; warning = a real hazard; key-idea = the one thing to remember; common-mistake = what learners often get wrong, and the fix."
+                              },
+                              "body": {
+                                "type": "string",
+                                "maxLength": 2000,
+                                "description": "Markdown, a few sentences at most."
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "intent",
+                              "type",
+                              "tone",
+                              "body"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+                              },
+                              "intent": {
+                                "type": "string",
+                                "enum": [
+                                  "activate",
+                                  "explain",
+                                  "example",
+                                  "analogy",
+                                  "visual",
+                                  "practice",
+                                  "recall",
+                                  "reflect",
+                                  "project",
+                                  "summary"
+                                ]
+                              },
+                              "title": {
+                                "type": "string",
+                                "maxLength": 200
+                              },
+                              "type": {
+                                "type": "string",
+                                "const": "image"
+                              },
+                              "images": {
+                                "minItems": 1,
+                                "maxItems": 6,
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "image": {
+                                      "type": "string",
+                                      "pattern": "^img-[0-9a-f]{16}$",
+                                      "description": "The id of a find_images result. Never made up."
+                                    },
+                                    "alt": {
+                                      "type": "string",
+                                      "minLength": 3,
+                                      "maxLength": 400,
+                                      "description": "What the picture shows, for someone who cannot see it. Specific, one or two sentences; never just a file name."
+                                    },
+                                    "caption": {
+                                      "description": "Shown under this picture: what to notice.",
+                                      "type": "string",
+                                      "maxLength": 200
+                                    },
+                                    "credit": {
+                                      "description": "Filled in by the engine from the search result; leave it out.",
+                                      "type": "object",
+                                      "properties": {
+                                        "provider": {
+                                          "type": "string",
+                                          "enum": [
+                                            "commons"
+                                          ]
+                                        },
+                                        "title": {
+                                          "type": "string",
+                                          "maxLength": 200,
+                                          "description": "The file's title at the source."
+                                        },
+                                        "author": {
+                                          "type": "string",
+                                          "maxLength": 200
+                                        },
+                                        "licence": {
+                                          "type": "string",
+                                          "maxLength": 100,
+                                          "description": "Short licence name, such as \"CC BY-SA 4.0\" or \"Public domain\"."
+                                        },
+                                        "licenceUrl": {
+                                          "type": "string",
+                                          "maxLength": 2000,
+                                          "pattern": "^https:\\/\\/[^\\s]+$"
+                                        },
+                                        "sourceUrl": {
+                                          "type": "string",
+                                          "maxLength": 2000,
+                                          "pattern": "^https:\\/\\/[^\\s]+$",
+                                          "description": "The file's page at the source, where its full licence and history are."
+                                        }
+                                      },
+                                      "required": [
+                                        "provider",
+                                        "title",
+                                        "author",
+                                        "licence",
+                                        "sourceUrl"
+                                      ],
+                                      "additionalProperties": false
+                                    }
+                                  },
+                                  "required": [
+                                    "image",
+                                    "alt"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "description": "One picture, or up to six shown side by side to compare (the cards of a suit, leaf shapes)."
+                              },
+                              "caption": {
+                                "description": "Under the whole block: what to look at and why it matters.",
+                                "type": "string",
+                                "maxLength": 2000
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "intent",
+                              "type",
+                              "images"
+                            ],
+                            "additionalProperties": false
+                          }
+                        ]
+                      }
+                    },
+                    "checks": {
+                      "default": [],
+                      "maxItems": 30,
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+                          },
+                          "kind": {
+                            "type": "string",
+                            "enum": [
+                              "choice",
+                              "short",
+                              "explain",
+                              "numeric"
+                            ],
+                            "description": "choice = multiple choice; short = a few words or one sentence; explain = in their own words; numeric = a number."
+                          },
+                          "prompt": {
+                            "type": "string",
+                            "maxLength": 12000,
+                            "description": "Markdown shown to the learner: only the question, self-contained."
+                          },
+                          "options": {
+                            "description": "For choice only. Distractors should be what real misconceptions produce.",
+                            "minItems": 2,
+                            "maxItems": 6,
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "maxLength": 2000
+                            }
+                          },
+                          "correctOption": {
+                            "description": "For choice only: zero-based index of the right option.",
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 9007199254740991
+                          },
+                          "optionMisconceptions": {
+                            "description": "For choice only: per option, the misconception id that picking it reveals, or null.",
+                            "maxItems": 6,
+                            "type": "array",
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "string",
+                                  "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "numericAnswer": {
+                            "description": "For numeric only.",
+                            "type": "number"
+                          },
+                          "tolerance": {
+                            "description": "For numeric only: accepted absolute error.",
+                            "type": "number",
+                            "minimum": 0
+                          },
+                          "answerKey": {
+                            "type": "string",
+                            "maxLength": 12000,
+                            "description": "The complete correct answer. Stays in the engine until the learner has answered."
+                          },
+                          "rubric": {
+                            "description": "For short and explain: what full and partial credit need.",
+                            "type": "string",
+                            "maxLength": 2000
+                          },
+                          "hints": {
+                            "default": [],
+                            "description": "Up to three hints from gentle to pointed. A hint guides thinking and never states the answer.",
+                            "maxItems": 3,
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "maxLength": 2000
+                            }
+                          },
+                          "misconceptionIds": {
+                            "default": [],
+                            "description": "Misconceptions of this objective that this check can reveal.",
+                            "maxItems": 12,
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+                            }
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "kind",
+                          "prompt",
+                          "answerKey"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "review": {
+                      "default": [],
+                      "description": "Facts worth spaced review once met.",
+                      "maxItems": 30,
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "front": {
+                            "type": "string",
+                            "maxLength": 2000,
+                            "description": "A question that forces recall."
+                          },
+                          "back": {
+                            "type": "string",
+                            "maxLength": 2000,
+                            "description": "The short answer."
+                          }
+                        },
+                        "required": [
+                          "front",
+                          "back"
+                        ],
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "id",
+                "statement",
+                "level"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "project": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string",
+                "maxLength": 200
+              },
+              "brief": {
+                "type": "string",
+                "maxLength": 12000,
+                "description": "Markdown: what to build or do, and why it matters."
+              },
+              "deliverables": {
+                "default": [],
+                "maxItems": 20,
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "maxLength": 2000
+                }
+              }
+            },
+            "required": [
+              "title",
+              "brief"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "why",
+          "objectives"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "sources": {
+      "default": [],
+      "maxItems": 100,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "url": {
+            "type": "string",
+            "maxLength": 2000,
+            "pattern": "^https?:\\/\\/[^\\s]+$"
+          },
+          "kind": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "why": {
+            "type": "string",
+            "maxLength": 2000
+          }
+        },
+        "required": [
+          "title",
+          "url",
+          "kind",
+          "why"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "format",
+    "version",
+    "id",
+    "title",
+    "subject",
+    "summary",
+    "audience",
+    "createdAt",
+    "modules"
+  ],
+  "additionalProperties": false
+}
